@@ -1,0 +1,7 @@
+{
+    "require": {
+        "league/commonmark": "^0.18.5",
+        "league/commonmark-extras": "^0.2.1",
+        "symfony/yaml": "^3.4"
+    }
+}

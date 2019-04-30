@@ -14,3 +14,4 @@ deploy:
   keep_history: false
   on:
     branch: gh-pages
+  local_dir: ./dist/
