@@ -1,6 +1,6 @@
 ```yaml
 title: 关于我
-template: common.html
+template: common-zh_cn.html
 ```
 
 # 关于我
