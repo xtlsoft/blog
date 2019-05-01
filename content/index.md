@@ -5,4 +5,10 @@ template: common.html
 
 # Homepage
 
-[Home](index.html) [About Me](about.html) [Blog](https://blog.xtlsoft.top/)
+Hello! I'm Tianle Xu (a.k.a. xtlsoft).
+
+My social media accounts:
+
+| name   | account  |
+| ------ | -------- |
+| GitHub | @xtlsoft |

@@ -24,8 +24,12 @@ function parseFile($name) {
         return;
     }
 
-    if (substr($name, -3) !== ".md") return;
     $job = substr($name, 10, -3);
+
+    if (substr($name, -3) !== ".md") {
+        echo shell_exec("cp -v $name ./dist/$job" . substr($name, -3));
+        return;
+    }
 
     $content = file_get_contents($name);
     $content = explode("\n", $content);
