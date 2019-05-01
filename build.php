@@ -6,9 +6,11 @@ use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Environment;
 use League\CommonMark\Extras\CommonMarkExtrasExtension;
 use Symfony\Component\Yaml\Yaml;
+use Webuni\CommonMark\TableExtension\TableExtension;
 
 $environment = Environment::createCommonMarkEnvironment();
 $environment->addExtension(new CommonMarkExtrasExtension());
+$environment->addExtension(new TableExtension());
 $converter = new CommonMarkConverter([], $environment);
 
 echo shell_exec("mkdir dist && cd dist && git init && cd ..");
