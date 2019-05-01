@@ -1,8 +1,8 @@
 ```yaml
-title: "xtlsoft :: Homepage"
+title: Homepage
 template: common.html
 ```
 
-# xtlsoft :: Homepage
+# Homepage
 
-[Home](/index.html) [About Me](/about.html) [Blog](https://blog.xtlsoft.top/)
+[Home](index.html) [About Me](about.html) [Blog](https://blog.xtlsoft.top/)
