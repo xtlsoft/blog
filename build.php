@@ -18,6 +18,7 @@ function parseFile($name) {
     global $converter;
 
     if (is_dir($name)) {
+        mkdir("./dist/" . substr($name, 10));
         foreach (glob($name . "/*") as $v) {
             parseFile($v);
         }
