@@ -9,8 +9,18 @@ template: common-zh_cn.html
 
 您好！ 我是徐天乐 （也作 xtlsoft）。
 
+初三在读学生，热爱计算机。
+
 我的常用账号：
 
-| 名称   | 账号     |
-| ------ | -------- |
-| GitHub | @xtlsoft |
+| 名称     | 账号                                              |
+| -------- | ------------------------------------------------- |
+| GitHub   | [@xtlsoft](https://github.com/xtlsoft/)           |
+| Mail     | xtl@xtlsoft.top xtlsoft@126.com                   |
+| QQ       | 2317305587                                        |
+| Telegram | [@xtlsoft](https://t.me/xtlsoft)                  |
+| 知乎     | [@xtlsoft](https://www.zhihu.com/people/xtlsoft/) |
+
+我的博客：
+
+https://blog.xtlsoft.top/
