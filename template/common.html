@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.2/css/mdui.min.css"
+      rel="stylesheet"
+    />
+    <title>Tianle Xu :: ${title}</title>
+  </head>
+  <body
+    class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-deep-purple"
+  >
+    <header class="mdui-appbar mdui-appbar-fixed">
+      <div class="mdui-appbar">
+        <div class="mdui-toolbar mdui-color-theme">
+          <a
+            class="mdui-btn mdui-btn-icon mdui-ripple"
+            mdui-drawer="{target: '#left-drawer'}"
+          >
+            <i class="mdui-icon material-icons">list</i>
+          </a>
+          <a class="mdui-typo-headline mdui-ripple" href="index.html">
+            Tianle Xu
+          </a>
+          <a class="mdui-typo-title mdui-ripple" href="javascript:;">
+            ${title}
+          </a>
+          <div class="mdui-toolbar-spacer"></div>
+          <a
+            class="mdui-btn mdui-btn-icon mdui-ripple"
+            href="https://blog.xtlsoft.top/"
+            target="_blank"
+            mdui-tooltip="{content: 'My Blog'}"
+          >
+            <i class="mdui-icon material-icons">chrome_reader_mode</i>
+          </a>
+          <a
+            class="mdui-btn mdui-btn-icon mdui-ripple"
+            href="https://github.com/xtlsoft"
+            target="_blank"
+            mdui-tooltip="{content: 'My GitHub'}"
+          >
+            <svg
+              class="mdui-icon"
+              id="Layer_1"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              x="0px"
+              y="0px"
+              viewBox="0 0 36 36"
+              enable-background="new 0 0 36 36"
+              xml:space="preserve"
+              style="width: 24px;height:24px;"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                fill="#ffffff"
+                d="M18,1.4C9,1.4,1.7,8.7,1.7,17.7c0,7.2,4.7,13.3,11.1,15.5
+	c0.8,0.1,1.1-0.4,1.1-0.8c0-0.4,0-1.4,0-2.8c-4.5,1-5.5-2.2-5.5-2.2c-0.7-1.9-1.8-2.4-1.8-2.4c-1.5-1,0.1-1,0.1-1
+	c1.6,0.1,2.5,1.7,2.5,1.7c1.5,2.5,3.8,1.8,4.7,1.4c0.1-1.1,0.6-1.8,1-2.2c-3.6-0.4-7.4-1.8-7.4-8.1c0-1.8,0.6-3.2,1.7-4.4
+	c-0.2-0.4-0.7-2.1,0.2-4.3c0,0,1.4-0.4,4.5,1.7c1.3-0.4,2.7-0.5,4.1-0.5c1.4,0,2.8,0.2,4.1,0.5c3.1-2.1,4.5-1.7,4.5-1.7
+	c0.9,2.2,0.3,3.9,0.2,4.3c1,1.1,1.7,2.6,1.7,4.4c0,6.3-3.8,7.6-7.4,8c0.6,0.5,1.1,1.5,1.1,3c0,2.2,0,3.9,0,4.5
+	c0,0.4,0.3,0.9,1.1,0.8c6.5-2.2,11.1-8.3,11.1-15.5C34.3,8.7,27,1.4,18,1.4z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </header>
+    <div class="mdui-drawer" id="left-drawer">
+      <ul class="mdui-list">
+        <a class="mdui-list-item mdui-ripple" href="index.html">
+          <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+          <div class="mdui-list-item-content">Home</div>
+        </a>
+        <a class="mdui-list-item mdui-ripple" href="about.html">
+          <i class="mdui-list-item-icon mdui-icon material-icons">person</i>
+          <div class="mdui-list-item-content">About</div>
+        </a>
+        <a class="mdui-list-item mdui-ripple" href="https://blog.xtlsoft.top/">
+          <i class="mdui-list-item-icon mdui-icon material-icons">
+            chrome_reader_mode
+          </i>
+          <div class="mdui-list-item-content">Blog</div>
+        </a>
+      </ul>
+    </div>
+    <div class="mdui-container">
+      <div class="mdui-typo">
+        ${content}
+        <div style="height: 2em;">&nbsp;</div>
+        <p align="center" style="color: silver;">
+          Choose Language:
+          <a href="/index.html" disabled>English</a>
+          <a href="/zh-cn/index.html">中文（简体）</a>
+        </p>
+        <p align="center">
+          <img
+            src="/img/rainbow.jpg"
+            alt="Rainbow Flag"
+            mdui-tooltip="{content: 'Friendly'}"
+            height="50px"
+          />
+        </p>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mdui/0.4.2/js/mdui.min.js"></script>
+    <script>
+      mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+    </script>
+  </body>
+</html>

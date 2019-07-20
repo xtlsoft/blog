@@ -1,0 +1,18 @@
+# Travis Build Configure
+
+# Build
+language: php
+php:
+  - 7.2
+install: composer install
+script: php build.php
+# Deploy
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  on:
+    branch: master
+  target_branch: gh-pages
+  local_dir: ./dist/
