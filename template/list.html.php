@@ -79,7 +79,7 @@ $end = min($start + $vars['limit']['number'], count($rslt));
                     </div>
                 </a>
                 <div class="mdui-card-content">
-                    <?= substr(htmlspecialchars(strip_tags($v['content'])), 0, 90) ?>...
+                    <?= mb_substr(htmlspecialchars(strip_tags($v['content'])), 0, 50) ?>...
                     &nbsp; &nbsp; &nbsp;
                     <a href="<?= $url ?>">继续阅读</a>
                     <hr class="mdui-divider" style="margin: 10px 0;" />
