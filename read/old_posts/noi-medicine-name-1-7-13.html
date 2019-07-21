@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阅读文章 - 徐天乐 :: 技术博客</title>
+    <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
+    <link rel="stylesheet" href="/highlight.js/style.min.css" />
+    <script src="/mdui/js/mdui.min.js"></script>
+    <script>
+        function jump(url) {
+            window.location.href = url;
+        }
+    </script>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+    <header>
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme-900">
+                <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
+                <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">阅读文章</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
+                <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
+            </div>
+        </div>
+    </header>
+    <div class="mdui-drawer" id="drawer-main">
+        <ul class="mdui-list mdui-ripple">
+                                        <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                    <div onclick="jump('/');" class="mdui-list-item-content">首页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">list</i>
+                    <div onclick="jump('/categories.html');" class="mdui-list-item-content">分类</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">archive</i>
+                    <div onclick="jump('/archive.html');" class="mdui-list-item-content">归档</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+                    <div onclick="jump('/link.html');" class="mdui-list-item-content">友情链接</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
+                    <div onclick="jump('https://www.xtlsoft.top');" class="mdui-list-item-content">个人主页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">mail</i>
+                    <div onclick="jump('mailto:xtl@xtlsoft.top');" class="mdui-list-item-content">Mail</div>
+                </li>
+                    </ul>
+    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        NOI Error Trace - 整理药名【1.7 编程基础之字符串 13】        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2017-06-13 16:39:41 &nbsp; &nbsp;
+            分类: 旧稿        </small>
+    </h1>
+    <div>
+        <p>原题：</p><pre><ol class="dp-cpp"><li class="alt"><span><span>12.整理药名【1.7编程基础之字符串13】&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;医生在书写药品名的时候经常不注意大小写，格式比较混乱。现要求你写一个程序将医生书写混乱的药品名整理成统一规范的格式，即药品名的第一个字符如果是字母要大写，其他字母小写。如将ASPIRIN、aspirin整理成Aspirin。&nbsp;</span></li><li class="alt"><span>输入:&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;第一行一个数字n，表示有n个药品名要整理，n不超过100。&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;接下来n行，每行一个单词，长度不超过20，表示医生手书的药品名。药品名由字母、数字和-组成。&nbsp;</span></li><li><span>输出:&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;n行，每行一个单词，对应输入的药品名的规范写法。&nbsp;</span></li><li><span>样例输入:&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;4&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;AspiRin&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;cisapride&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;2-PENICILLIN&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;Cefradine-6&nbsp;</span></li><li><span>样例输出:&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;Aspirin&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;Cisapride&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;2-penicillin&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;Cefradine-6&nbsp;</span></li></ol></pre><p>错误代码：</p><pre><ol class="dp-cpp"><li class="alt"><span><span class="preprocessor">#include&nbsp;&lt;cstdio&gt;</span><span>&nbsp;</span></span></li><li><span><span class="preprocessor">#include&nbsp;&lt;iostream&gt;</span><span>&nbsp;</span></span></li><li class="alt"><span><span class="preprocessor">#include&nbsp;&lt;cstring&gt;</span><span>&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="keyword">using</span><span>&nbsp;</span><span class="keyword">namespace</span><span>&nbsp;std;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="datatypes">int</span><span>&nbsp;main(){&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="datatypes">char</span><span>&nbsp;s[101][101];&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="datatypes">int</span><span>&nbsp;count;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;cin&gt;&gt;count;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>&nbsp;(</span><span class="datatypes">int</span><span>&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;count;&nbsp;i++)&nbsp;{&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&gt;&gt;s[i];&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>&nbsp;(</span><span class="datatypes">int</span><span>&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;count;&nbsp;i++)&nbsp;{&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>(</span><span class="datatypes">int</span><span>&nbsp;j=0;&nbsp;j&lt;strlen(s[i]);&nbsp;j++){&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(j==0&nbsp;&amp;&amp;&nbsp;s[i][j]&gt;=97&nbsp;&amp;&amp;&nbsp;s[i][j]&lt;=122&nbsp;){&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s[i][j]&nbsp;-=&nbsp;32;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<span class="keyword">else</span><span>&nbsp;</span><span class="keyword">if</span><span>(s[i][j]&gt;=65&nbsp;&amp;&amp;&nbsp;s[i][j]&lt;=90&nbsp;){&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s[i][j]&nbsp;+=&nbsp;32;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<span class="string">&quot;%c&quot;</span><span>,s[i][j]);&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;endl;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span></li><li><span>}&nbsp;</span></li></ol></pre><p>正确代码：</p><pre><ol class="dp-cpp"><li class="alt"><span><span class="preprocessor">#include&nbsp;&lt;cstdio&gt;</span><span>&nbsp;</span></span></li><li><span><span class="preprocessor">#include&nbsp;&lt;iostream&gt;</span><span>&nbsp;</span></span></li><li class="alt"><span><span class="preprocessor">#include&nbsp;&lt;cstring&gt;</span><span>&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="keyword">using</span><span>&nbsp;</span><span class="keyword">namespace</span><span>&nbsp;std;&nbsp;</span></span></li><li><span>&nbsp;</span></li><li class="alt"><span><span class="datatypes">int</span><span>&nbsp;main(){&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="datatypes">char</span><span>&nbsp;s[101][101];&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="datatypes">int</span><span>&nbsp;count;&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;cin&gt;&gt;count;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>&nbsp;(</span><span class="datatypes">int</span><span>&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;count;&nbsp;i++)&nbsp;{&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cin&gt;&gt;s[i];&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>&nbsp;(</span><span class="datatypes">int</span><span>&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;count;&nbsp;i++)&nbsp;{&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span><span>(</span><span class="datatypes">int</span><span>&nbsp;j=0;&nbsp;j&lt;strlen(s[i]);&nbsp;j++){&nbsp;</span></span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span><span>(j==0&nbsp;&amp;&amp;&nbsp;s[i][j]&gt;=97&nbsp;&amp;&amp;&nbsp;s[i][j]&lt;=122&nbsp;){&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s[i][j]&nbsp;-=&nbsp;32;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<span class="keyword">else</span><span>&nbsp;</span><span class="keyword">if</span><span>(j!=0&nbsp;&amp;&amp;&nbsp;s[i][j]&gt;=65&nbsp;&amp;&amp;&nbsp;s[i][j]&lt;=90&nbsp;){&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s[i][j]&nbsp;+=&nbsp;32;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;printf(<span class="string">&quot;%c&quot;</span><span>,s[i][j]);&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span></li><li><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&lt;&lt;endl;&nbsp;</span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;</span></li><li><span>}&nbsp;</span></li></ol></pre><p>更改：18行。</p>
+<blockquote>
+<p>整理时补充：这个系列可能还会再写。</p>
+</blockquote>
+    </div>
+</div>
+<script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2019            </p>
+        </div>
+    </div>    </div>
+    <!-- <div class="mdui-color-blue-700" style="padding: 5px; height: 70px; margin-top: 20px; margin-bottom: 0px;">
+        <p align="center" class="mdui-text-color-silver-500">Developed by xtlsoft, theme using MDUI</p>
+        <p align="center" class="mdui-text-color-silver-500">&copy; 2016-2019 xtlsoft</p>
+    </div> -->
+    </body>
+    <script type="text/javascript" src="/highlight.js/highlight.min.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</html>
