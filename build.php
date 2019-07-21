@@ -81,9 +81,16 @@ foreach ($categories as $k => $category_name) {
     foreach (glob("./articles/$k/*") as $v) {
         $article = explode("\n", file_get_contents($v));
         $title = trim(substr($article[0], 1));
-        $content = parseMarkdown(implode("\n", array_slice($article, 1)));
-        $author = "xtlsoft";
-        $time = filemtime($v);
+        // Information string starts with "% "
+        // on line 3 (line 2 should be empty)
+        // and contains author and time.
+        // Like: % xtlsoft, 2004-09-29 00:00:00
+        $informations = explode(", ", trim(substr($article[2], 1)));
+        $content = parseMarkdown(implode("\n", array_slice($article, 3)));
+        $author = trim($informations[0]);
+        $time = date_timestamp_get(
+            date_create_from_format('Y-m-d H:i:s', trim($informations[1]))
+        );
         $id = substr(basename($v), 0, -3);
         $articles[$k][] = [
             "id" => $id,
