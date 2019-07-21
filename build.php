@@ -14,7 +14,7 @@ $environment->addExtension(new TableExtension());
 $converter = new CommonMarkConverter([], $environment);
 
 echo shell_exec("mkdir -p dist && cd dist && git init && cd ..");
-echo shell_exec("cp ./static/* ./dist -rf");
+echo shell_exec("cp ./static/* ./dist -rvf");
 
 function parsePageFile($name)
 {
@@ -44,7 +44,7 @@ function parsePageFile($name)
             $php .= $v . "\n";
         }
     }
-    if ($php === "") $php = "return [[]]";
+    if ($php === "") $php = "return [[]];";
     $var_lists = eval($php);
     foreach ($var_lists as $var_list) {
         $cnf2 = $cnf;
@@ -95,6 +95,7 @@ foreach ($categories as $k => $category_name) {
             "author" => $author
         ];
         ++$count_articles;
+        echo "Finished parsing: $v\r\n";
     }
 }
 
