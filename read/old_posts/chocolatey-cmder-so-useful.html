@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>普通主题 - 徐天乐 :: 技术博客</title>
+    <title>阅读文章 - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">普通主题</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">阅读文章</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -63,94 +63,49 @@
                 </li>
                     </ul>
     </div>
-    <div id="main" style="margin: 0px 15px; min-height: 90%;"><style>
-    .list-unstyled {
-        padding-left: 0px;
-        list-style: none;
-    }
-
-    .list-unstyled li {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .xblog-list-card-container {
-        margin: 15px auto;
-        max-width: 1050px;
-        min-height: 400px;
-    }
-
-    .xblog-list-card-container .mdui-card-media {
-        background-position: center center;
-        background-repeat: no-repeat;
-        /* background-attachment: fixed; */
-        background-size: cover;
-        background-color: #464646;
-    }
-
-    .xblog-footer-nav-text {
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: 20px;
-        font-weight: 500;
-        -webkit-font-smoothing: antialiased;
-        height: 100%;
-        line-height: 24px;
-        padding-top: 24px;
-        width: 100%;
-    }
-
-    .xblog-footer-nav-text .xblog-footer-nav-direction {
-        font-size: 15px;
-        line-height: 18px;
-        margin-bottom: 1px;
-        opacity: 0.55;
-    }
-</style>
-
-<ul class="list-unstyled">
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/general/hello-world.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-10.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">Hello World</div>
-                                <div class="mdui-card-primary-subtitle">分类：普通主题</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    Hello, World!
-使用 GitHub Pages，继续愉快地玩耍！
-（觉得有用的旧文章�...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/general/hello-world.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                        <img src="http://avatar.dawnlab.me/github/xtlsoft/" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                        <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2019-07-21 13:55:00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="mdui-color-theme" style="height: 96px;">
-    <div class="mdui-container">
-        <div class="mdui-row">
-                            <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                                        <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        Cmder+Chocolatey - 这才是 Windows        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2017-08-16 08:42:19 &nbsp; &nbsp;
+            分类: 旧稿        </small>
+    </h1>
+    <div>
+        <h2>Windows V.S. Linux</h2>
+<p>我可能就是那种认为如果没有浏览器就不需要图形界面的人吧。
+我在命令行下的效率比在图形界面高得多。
+这是我为什么热衷 linux。
+Windows 的 Cmd 和 Powershell 简直看上去垃圾，而 cygwin 又没有命令行的包管理，而且不是完美方案。</p>
+<h2>Cmder - A Wonderful CLI Interface</h2>
+<p>想必大家用 Windows 自带的 cmd 都厌倦了，而且经常会有打<code>ls</code>出来 Windows 找不到该命令然后懵逼半天的经历。
+Cmder——不仅仅是好看。我从来没有推荐过任何一款 linux 下的终端软件，因为即使是<code>XTerm</code>，即使它不支持中文，我也觉得足够了。而在 windows 下面，可以和他们媲美的，可能就只有 cmder 了吧。
+而且，cmder 自带了一个 cygwin 和一个 alias，也就是说，你打<code>ls</code>再也不会出现找不到该命令了。如果想要纯真的 linux，直接输入<code>bash</code>就可以启用 cygwin。
+并且，原生支持多窗口！这个必须顶，界面还是透明的，极客风十足！最重要的是，还是绿色、开源的！</p>
+<h2>Chocolatey - Package Manager for Windows</h2>
+<p>用完 pacman，yum，apt，他们各有好坏，但都很好用，一条命令一个软件。
+但是，在 Windows 下面，安装软件就繁多了，还要点鼠标，都厌烦了。
+这时，Chocolatey 简直是救星。
+例如，需要安装<code>wget</code>，只要：
+<code>cinst wget</code>
+而且，如果软件有依赖包（例如 php 依赖 vcredist），他也会自动安装。
+太方便了有没有！！！</p>
+<blockquote>
+<p>整理时补充：真不错，我选择 WSL2 + Windows Terminal （逃）。</p>
+</blockquote>
     </div>
+</div>
+<script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2019            </p>
         </div>
+    </div>    </div>
     <!-- <div class="mdui-color-blue-700" style="padding: 5px; height: 70px; margin-top: 20px; margin-bottom: 0px;">
         <p align="center" class="mdui-text-color-silver-500">Developed by xtlsoft, theme using MDUI</p>
         <p align="center" class="mdui-text-color-silver-500">&copy; 2016-2019 xtlsoft</p>

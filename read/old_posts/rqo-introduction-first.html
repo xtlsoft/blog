@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阅读文章 - 徐天乐 :: 技术博客</title>
+    <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
+    <link rel="stylesheet" href="/highlight.js/style.min.css" />
+    <script src="/mdui/js/mdui.min.js"></script>
+    <script>
+        function jump(url) {
+            window.location.href = url;
+        }
+    </script>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+    <header>
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme-900">
+                <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
+                <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">阅读文章</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
+                <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
+            </div>
+        </div>
+    </header>
+    <div class="mdui-drawer" id="drawer-main">
+        <ul class="mdui-list mdui-ripple">
+                                        <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                    <div onclick="jump('/');" class="mdui-list-item-content">首页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">list</i>
+                    <div onclick="jump('/categories.html');" class="mdui-list-item-content">分类</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">archive</i>
+                    <div onclick="jump('/archive.html');" class="mdui-list-item-content">归档</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+                    <div onclick="jump('/link.html');" class="mdui-list-item-content">友情链接</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
+                    <div onclick="jump('https://www.xtlsoft.top');" class="mdui-list-item-content">个人主页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">mail</i>
+                    <div onclick="jump('mailto:xtl@xtlsoft.top');" class="mdui-list-item-content">Mail</div>
+                </li>
+                    </ul>
+    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        Rqo - 一个轻快、完全标准化、模块化的 PHP 框架        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2017-10-22 08:58:56 &nbsp; &nbsp;
+            分类: 旧稿        </small>
+    </h1>
+    <div>
+        <h2>什么是 Rqo</h2>
+<p>Rqo, 一个轻快、完全标准化、模块化的 PHP 框架。初衷是 MVVM 后端和 API 框架，但是实际上我还是写了 MVC 的模块。</p>
+<p>哪里用得不愉快，可以直接自己替换掉这个模块。</p>
+<p>GitHub： <a href="https://github.com/xtlsoft/RQO"><a href="https://github.com/xtlsoft/RQO">https://github.com/xtlsoft/RQO</a></a></p>
+<h2>灵感来源</h2>
+<p>说来也怪，在看 PHP-X 的源码时，想起了 ReactPHP，然后觉的 Workerman 一堆不足，并且觉得之前的 XPHP 框架太传统（虽然它的定位就是一个轻巧的传统的框架，放心没弃坑，只是下次更新内容太大，魔改成全事件处理了，工作量太大，加上开学了，还没来得及），于是就挖了一个新坑。</p>
+<h2>优点</h2>
+<ul>
+<li>完全模块化，可以随意替换，各种框架模式都独立出来。</li>
+<li>基于 ReactPHP，非常迅速，原生支持协程（详见 <a href="https://github.com/xtlsoft/XCoroutine">https://github.com/xtlsoft/XCoroutine</a> ）。</li>
+<li>无需多余的配置，没有冗余的代码，直接运行，一步直达。</li>
+<li>完全标准化，代码质量高，复用性强，使用了许多新特性。</li>
+<li>针对性强，开发周期短，跨平台，一份代码在 Windows，Linux，Mac 上都可以直接运行，不需要像 Swoole/Workerman 一样修改。</li>
+<li>接口丰富，拓展方便，看着舒心。</li>
+<li>用法非常丰富，只要脑洞够大，怎么写，都可以。</li>
+<li>5 年经验~~老司机~~倾情奉献，实战项目保证。</li>
+<li>很多轮子不需要再造，完全内置，完全依赖 composer。</li>
+<li>兼容 PHP-FIG 标准，并且提供了丰富的内置类库。</li>
+</ul>
+<h2>使用场景</h2>
+<p>很多。都可以。
+原生支持以下 3 中协议进行交互，可以拓展：</p>
+<ol>
+<li>HTTP (<code>\Rqo\Http\Route</code>)</li>
+<li>WebSocket (<code>\Rqo\WebSocket\Route</code>)</li>
+<li>GraphQL over HTTP (<code>\Rqo\Http\GraphQL\Route</code>)
+只要实例化不同的 route 就行。</li>
+</ol>
+<h2>例子</h2>
+<p>下面是一个例子：
+(Application/Test/Application.php)</p>
+<pre><code class="language-php">&lt;?php
+    /**
+     * TestApplication
+     *
+     * @author (YourName)&lt;name@example.com&gt;
+     * @package Test
+     * @license MIT
+     *
+     */
+
+    namespace Application\Test;
+
+    $App = new \Rqo\Application(&quot;127.0.0.1:28123&quot;, []); //Create An Application Which Listen On 28123
+
+    $Route = new \Rqo\Http\Route();
+
+    $Route-&gt;get(&quot;{any}&quot;, function(\Rqo\Http\Request $req){
+
+        $html = '
+&lt;!Doctype html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;meta charset=&quot;utf-8&quot; /&gt;
+        &lt;title&gt;Rqo Test Application&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        This is the test application in xtlsoft\' blog.
+    &lt;/body&gt;
+&lt;/html&gt;
+        '
+
+        return (
+            new \Rqo\Http\Response(200) -&gt;
+            header(
+                new \Rqo\Http\Header([
+                    &quot;content-type&quot; =&gt; &quot;text/html&quot;
+                ])
+            ) -&gt;
+            write($html)
+        );
+
+    });
+
+    $App-&gt;route($Route);
+
+    \Rqo\Application::add($App);
+
+</code></pre>
+<blockquote>
+<p>整理时添加：弃坑已久。</p>
+</blockquote>
+    </div>
+</div>
+<script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2019            </p>
+        </div>
+    </div>    </div>
+    <!-- <div class="mdui-color-blue-700" style="padding: 5px; height: 70px; margin-top: 20px; margin-bottom: 0px;">
+        <p align="center" class="mdui-text-color-silver-500">Developed by xtlsoft, theme using MDUI</p>
+        <p align="center" class="mdui-text-color-silver-500">&copy; 2016-2019 xtlsoft</p>
+    </div> -->
+    </body>
+    <script type="text/javascript" src="/highlight.js/highlight.min.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</html>

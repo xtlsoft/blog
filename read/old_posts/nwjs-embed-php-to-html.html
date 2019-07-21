@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>阅读文章 - 徐天乐 :: 技术博客</title>
+    <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
+    <link rel="stylesheet" href="/highlight.js/style.min.css" />
+    <script src="/mdui/js/mdui.min.js"></script>
+    <script>
+        function jump(url) {
+            window.location.href = url;
+        }
+    </script>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+    <header>
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme-900">
+                <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
+                <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">阅读文章</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
+                <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
+            </div>
+        </div>
+    </header>
+    <div class="mdui-drawer" id="drawer-main">
+        <ul class="mdui-list mdui-ripple">
+                                        <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                    <div onclick="jump('/');" class="mdui-list-item-content">首页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">list</i>
+                    <div onclick="jump('/categories.html');" class="mdui-list-item-content">分类</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">archive</i>
+                    <div onclick="jump('/archive.html');" class="mdui-list-item-content">归档</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+                    <div onclick="jump('/link.html');" class="mdui-list-item-content">友情链接</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
+                    <div onclick="jump('https://www.xtlsoft.top');" class="mdui-list-item-content">个人主页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">mail</i>
+                    <div onclick="jump('mailto:xtl@xtlsoft.top');" class="mdui-list-item-content">Mail</div>
+                </li>
+                    </ul>
+    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        nw.js 中在 HTML 内嵌 PHP        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2017-07-30 19:39:52 &nbsp; &nbsp;
+            分类: 旧稿        </small>
+    </h1>
+    <div>
+        <h2>由来</h2>
+<p>nw.js 真的是一个很好用的桌面 hybird 应用引擎啊！
+而我不想写 Nodejs，只想写 PHP…
+于是就有了这个想法。</p>
+<h2>实现</h2>
+<p>不多说，直接贴代码：</p>
+<pre><code class="language-javascript">/** bridge.js **/
+/** @author xtl &lt;xtl@xtlsoft.top&gt; **/
+
+(window.util = require(&quot;util&quot;)),
+  (window.sexec = require(&quot;child_process&quot;).spawn);
+
+window.toUTF8 = function(gbk) {
+  if (!gbk) {
+    return &quot;&quot;;
+  }
+  var utf8 = [];
+  for (var i = 0; i &lt; gbk.length; i++) {
+    var s_str = gbk.charAt(i);
+    if (!/^%u/i.test(escape(s_str))) {
+      utf8.push(s_str);
+      continue;
+    }
+    var s_char = gbk.charCodeAt(i);
+    var b_char = s_char.toString(2).split(&quot;&quot;);
+    var c_char = b_char.length == 15 ? [0].concat(b_char) : b_char;
+    var a_b = [];
+    a_b[0] = &quot;1110&quot; + c_char.splice(0, 4).join(&quot;&quot;);
+    a_b[1] = &quot;10&quot; + c_char.splice(0, 6).join(&quot;&quot;);
+    a_b[2] = &quot;10&quot; + c_char.splice(0, 6).join(&quot;&quot;);
+    for (var n = 0; n &lt; a_b.length; n++) {
+      utf8.push(
+        &quot;%&quot; +
+          parseInt(a_b[n], 2)
+            .toString(16)
+            .toUpperCase()
+      );
+    }
+  }
+  return utf8.join(&quot;&quot;);
+};
+
+// fs = fs(&quot;php_bin\\php&quot;,['php\\index.php']);
+// fs.stdout.on(&quot;data&quot;, function (d){
+//     document.write(&quot;&lt;pre&gt;&quot;+d+&quot;&lt;/pre&gt;&quot;);
+// });
+
+window.phpPath = &quot;php_bin\\php&quot;;
+window.phpScriptDirectory = &quot;php\\&quot;;
+
+window.php = {
+  exec: function(command, callback) {
+    fs = sexec(phpPath, [&quot;-r&quot;, command]);
+    fs.stdout.on(&quot;data&quot;, function(d) {
+      callback(d);
+    });
+  },
+
+  file: function(file, callback, arg) {
+    fs = sexec(phpPath, [phpScriptDirectory + file, JSON.stringify(arg)]);
+    fs.stdout.on(&quot;data&quot;, function(d) {
+      callback(d);
+    });
+  },
+
+  getScript: function(id) {
+    return document.getElementById(id).innerHTML;
+  }
+};
+</code></pre>
+<pre><code class="language-php">&lt;?php
+    /**
+     * Bridge File
+     *
+     * bridge.php
+     *
+     * @package nwjs2php
+     * @author xtl &lt;xtl@xtlsoft.top&gt;
+     * @license MIT
+     *
+     */
+
+    chdir(__DIR__);
+
+function utf16_to_utf8($str) {
+    $c0 = ord($str[0]);
+    $c1 = ord($str[1]);
+
+    if ($c0 == 0xFE &amp;&amp; $c1 == 0xFF) {
+        $be = true;
+    } else if ($c0 == 0xFF &amp;&amp; $c1 == 0xFE) {
+        $be = false;
+    } else {
+        return $str;
+    }
+
+    $str = substr($str, 2);
+    $len = strlen($str);
+    $dec = '';
+    for ($i = 0; $i &lt; $len; $i += 2) {
+        $c = ($be) ? ord($str[$i]) &lt;&lt; 8 | ord($str[$i + 1]) :
+                ord($str[$i + 1]) &lt;&lt; 8 | ord($str[$i]);
+        if ($c &gt;= 0x0001 &amp;&amp; $c &lt;= 0x007F) {
+            $dec .= chr($c);
+        } else if ($c &gt; 0x07FF) {
+            $dec .= chr(0xE0 | (($c &gt;&gt; 12) &amp; 0x0F));
+            $dec .= chr(0x80 | (($c &gt;&gt;  6) &amp; 0x3F));
+            $dec .= chr(0x80 | (($c &gt;&gt;  0) &amp; 0x3F));
+        } else {
+            $dec .= chr(0xC0 | (($c &gt;&gt;  6) &amp; 0x1F));
+            $dec .= chr(0x80 | (($c &gt;&gt;  0) &amp; 0x3F));
+        }
+    }
+    return $dec;
+}
+
+    $arg = utf16_to_utf8($argv[1]);
+
+    $GLOBALS['_GET'] = json_decode($arg, true);
+
+    foreach($_GET as $k =&gt; $v){
+        $_GET[$k] = urldecode($v);
+    }
+</code></pre>
+<h2>使用</h2>
+<p>两种方法：</p>
+<p>1、内嵌代码：</p>
+<pre><code class="language-javascript">php.exec(&quot;echo 'HelloWorld';//More Code here&quot;, function(d) {
+  alert(d);
+});
+</code></pre>
+<p>2、外置文件</p>
+<pre><code class="language-javascript">var data = { toEcho: &quot;China I love you!&quot; };
+php.file(
+  &quot;index.php&quot;,
+  function(d) {
+    alert(d);
+  },
+  data
+);
+</code></pre>
+<blockquote>
+<p>整理时补充：请避免如此粗暴的黑科技。</p>
+</blockquote>
+    </div>
+</div>
+<script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2019            </p>
+        </div>
+    </div>    </div>
+    <!-- <div class="mdui-color-blue-700" style="padding: 5px; height: 70px; margin-top: 20px; margin-bottom: 0px;">
+        <p align="center" class="mdui-text-color-silver-500">Developed by xtlsoft, theme using MDUI</p>
+        <p align="center" class="mdui-text-color-silver-500">&copy; 2016-2019 xtlsoft</p>
+    </div> -->
+    </body>
+    <script type="text/javascript" src="/highlight.js/highlight.min.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</html>

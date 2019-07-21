@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>普通主题 - 徐天乐 :: 技术博客</title>
+    <title>阅读文章 - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">普通主题</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">阅读文章</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -63,94 +63,42 @@
                 </li>
                     </ul>
     </div>
-    <div id="main" style="margin: 0px 15px; min-height: 90%;"><style>
-    .list-unstyled {
-        padding-left: 0px;
-        list-style: none;
-    }
-
-    .list-unstyled li {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .xblog-list-card-container {
-        margin: 15px auto;
-        max-width: 1050px;
-        min-height: 400px;
-    }
-
-    .xblog-list-card-container .mdui-card-media {
-        background-position: center center;
-        background-repeat: no-repeat;
-        /* background-attachment: fixed; */
-        background-size: cover;
-        background-color: #464646;
-    }
-
-    .xblog-footer-nav-text {
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: 20px;
-        font-weight: 500;
-        -webkit-font-smoothing: antialiased;
-        height: 100%;
-        line-height: 24px;
-        padding-top: 24px;
-        width: 100%;
-    }
-
-    .xblog-footer-nav-text .xblog-footer-nav-direction {
-        font-size: 15px;
-        line-height: 18px;
-        margin-bottom: 1px;
-        opacity: 0.55;
-    }
-</style>
-
-<ul class="list-unstyled">
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/general/hello-world.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-10.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">Hello World</div>
-                                <div class="mdui-card-primary-subtitle">分类：普通主题</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    Hello, World!
-使用 GitHub Pages，继续愉快地玩耍！
-（觉得有用的旧文章�...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/general/hello-world.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                        <img src="http://avatar.dawnlab.me/github/xtlsoft/" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                        <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2019-07-21 13:55:00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="mdui-color-theme" style="height: 96px;">
-    <div class="mdui-container">
-        <div class="mdui-row">
-                            <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                                        <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        CentOS 安装 postfix 的坑        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2017-08-06 12:52:18 &nbsp; &nbsp;
+            分类: 旧稿        </small>
+    </h1>
+    <div>
+        <h2>由来</h2>
+<p>我想要在我的 BudgetVM 服务器上搭建一个企业邮件服务器。</p>
+<h2>问题症状</h2>
+<p>在 <code>service postfix start</code> 时，总是不行。
+使用 <code>systemctl status postfix.service -l</code>，查看日志，发现：</p>
+<pre><code class="language-plain">Aug 06 12:42:58 XTLSOFT postfix/master[28061]: fatal: open lock file /var/lib/postfix/master.lock: cannot open file: Permission denied
+</code></pre>
+<h2>解决</h2>
+<p>尝试 <code>chmod 7777 /var/lib/postfix &amp;&amp; rm /var/lib/postfix/master.lock -f</code> 失败。
+原讨论地址： <a href="https://www.linuxquestions.org/questions/linux-server-73/open-lock-file-var-lib-postfix-master-lock-cannot-open-file-permission-denied-700674/"><a href="https://www.linuxquestions.org/questions/linux-server-73/open-lock-file-var-lib-postfix-master-lock-cannot-open-file-permission-denied-700674/">https://www.linuxquestions.org/questions/linux-server-73/open-lock-file-var-lib-postfix-master-lock-cannot-open-file-permission-denied-700674/</a></a></p>
+<p>其实只需要：<code>chmod 755 /</code>
+然后就好了。</p>
+<h2>小结</h2>
+<p>真是诡异的解决办法。。。</p>
     </div>
+</div>
+<script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2019            </p>
         </div>
+    </div>    </div>
     <!-- <div class="mdui-color-blue-700" style="padding: 5px; height: 70px; margin-top: 20px; margin-bottom: 0px;">
         <p align="center" class="mdui-text-color-silver-500">Developed by xtlsoft, theme using MDUI</p>
         <p align="center" class="mdui-text-color-silver-500">&copy; 2016-2019 xtlsoft</p>
