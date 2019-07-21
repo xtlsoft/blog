@@ -1,5 +1,7 @@
 # Golang 【伪】可选参数（Optional Parameters）
 
+% xtlsoft, 2018-06-30 13:28:16
+
 ## 由来
 
 > TL;DR 可以直接看最下面“我的解决方案”。
