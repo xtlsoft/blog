@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rqo - 一个轻快、完全标准化、模块化的 PHP 框架 - 徐天乐 :: 技术博客</title>
+    <title>Golang 【伪】可选参数（Optional Parameters） - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">Rqo - 一个轻快、完全标准化、模块化的 PHP 框架</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">Golang 【伪】可选参数（Optional Parameters）</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -65,94 +65,91 @@
     </div>
     <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
     <h1>
-        Rqo - 一个轻快、完全标准化、模块化的 PHP 框架        <br />
+        Golang 【伪】可选参数（Optional Parameters）        <br />
         <small>
-            作者: xtlsoft &nbsp; &nbsp;
-            时间: 2017-10-22 08:58:56 &nbsp; &nbsp;
+            作者: # 由来 &nbsp; &nbsp;
+            时间: 1970-01-01 00:00:00 &nbsp; &nbsp;
             分类: 旧稿        </small>
     </h1>
     <div>
-        <h2>什么是 Rqo</h2>
-<p>Rqo, 一个轻快、完全标准化、模块化的 PHP 框架。初衷是 MVVM 后端和 API 框架，但是实际上我还是写了 MVC 的模块。</p>
-<p>哪里用得不愉快，可以直接自己替换掉这个模块。</p>
-<p>GitHub： <a href="https://github.com/xtlsoft/RQO"><a href="https://github.com/xtlsoft/RQO">https://github.com/xtlsoft/RQO</a></a></p>
-<h2>灵感来源</h2>
-<p>说来也怪，在看 PHP-X 的源码时，想起了 ReactPHP，然后觉的 Workerman 一堆不足，并且觉得之前的 XPHP 框架太传统（虽然它的定位就是一个轻巧的传统的框架，放心没弃坑，只是下次更新内容太大，魔改成全事件处理了，工作量太大，加上开学了，还没来得及），于是就挖了一个新坑。</p>
-<h2>优点</h2>
-<ul>
-<li>完全模块化，可以随意替换，各种框架模式都独立出来。</li>
-<li>基于 ReactPHP，非常迅速，原生支持协程（详见 <a href="https://github.com/xtlsoft/XCoroutine"><a href="https://github.com/xtlsoft/XCoroutine">https://github.com/xtlsoft/XCoroutine</a></a> ）。</li>
-<li>无需多余的配置，没有冗余的代码，直接运行，一步直达。</li>
-<li>完全标准化，代码质量高，复用性强，使用了许多新特性。</li>
-<li>针对性强，开发周期短，跨平台，一份代码在 Windows，Linux，Mac 上都可以直接运行，不需要像 Swoole/Workerman 一样修改。</li>
-<li>接口丰富，拓展方便，看着舒心。</li>
-<li>用法非常丰富，只要脑洞够大，怎么写，都可以。</li>
-<li>5 年经验~~老司机~~倾情奉献，实战项目保证。</li>
-<li>很多轮子不需要再造，完全内置，完全依赖 composer。</li>
-<li>兼容 PHP-FIG 标准，并且提供了丰富的内置类库。</li>
-</ul>
-<h2>使用场景</h2>
-<p>很多。都可以。
-原生支持以下 3 中协议进行交互，可以拓展：</p>
-<ol>
-<li>HTTP (<code>\Rqo\Http\Route</code>)</li>
-<li>WebSocket (<code>\Rqo\WebSocket\Route</code>)</li>
-<li>GraphQL over HTTP (<code>\Rqo\Http\GraphQL\Route</code>)
-只要实例化不同的 route 就行。</li>
-</ol>
-<h2>例子</h2>
-<p>下面是一个例子：
-(Application/Test/Application.php)</p>
-<pre><code class="language-php">&lt;?php
-    /**
-     * TestApplication
-     *
-     * @author (YourName)&lt;name@example.com&gt;
-     * @package Test
-     * @license MIT
-     *
-     */
-
-    namespace Application\Test;
-
-    $App = new \Rqo\Application(&quot;127.0.0.1:28123&quot;, []); //Create An Application Which Listen On 28123
-
-    $Route = new \Rqo\Http\Route();
-
-    $Route-&gt;get(&quot;{any}&quot;, function(\Rqo\Http\Request $req){
-
-        $html = '
-&lt;!Doctype html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;meta charset=&quot;utf-8&quot; /&gt;
-        &lt;title&gt;Rqo Test Application&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        This is the test application in xtlsoft\' blog.
-    &lt;/body&gt;
-&lt;/html&gt;
-        '
-
-        return (
-            new \Rqo\Http\Response(200) -&gt;
-            header(
-                new \Rqo\Http\Header([
-                    &quot;content-type&quot; =&gt; &quot;text/html&quot;
-                ])
-            ) -&gt;
-            write($html)
-        );
-
-    });
-
-    $App-&gt;route($Route);
-
-    \Rqo\Application::add($App);
-
+        <blockquote>
+<p>TL;DR 可以直接看最下面“我的解决方案“。</p>
+</blockquote>
+<p>前几天，在 @gosrc （果子）的 Golang 群里，谈到可选参数的事情，这里我就来详细说明一下。</p>
+<h2>官方的支持</h2>
+<h3>错误写法</h3>
+<p>Golang 官方并没有对可选参数提供任何支持，所以目前我们大家在其他语言中习惯的这种写法是错误的：</p>
+<pre><code class="language-go">func TestFuncWithOptionalParameters(arg1 string, arg2 int = true) {
+    // Do something...
+}
 </code></pre>
+<p>嗯，100% 无法编译。
+另外，这种写法也是错误的：</p>
+<pre><code class="language-go">func TestFuncWithAnotherOptionalParameter(arg1 string, [arg2 int]) {
+    // Do something...
+}
+</code></pre>
+<p>嗯，仍然无法编译。</p>
+<h3>官方的说明</h3>
+<p>官方的文章中表示，可选参数不是十分有用，所以今后都不会支持。</p>
+<h2>常见的解决办法</h2>
+<h3>不使用可选参数</h3>
+<p>这个我想我就不用多说了。
+例如使用 <code>nil</code> ，最著名的算是 <code>net/http</code> 中 <code>ListenAndServe</code> 方法了。</p>
+<pre><code class="language-go">import &quot;net/http&quot;
+func Serve() {
+    // &quot;:8080&quot; 是端口号，而 nil 是 Handler 参数，为 nil 代表使用 http.Handle() 或 http.HandleFunc() 注册过的 Handler。
+    http.ListenAndServe(&quot;:8080&quot;, nil)
+}
+</code></pre>
+<h3>常用解决方案</h3>
 <blockquote>
-<p>整理时添加：弃坑已久。</p>
+<p>该方案常见于各大开源项目，但是不能实际上很好地解决问题，因为调用时依然不能像 Javascript，PHP，Python 这类语言一样直接忽略。</p>
+</blockquote>
+<p>定义一个 Struct ，叫 XXXArguments 或 XXXParameters 之类的。
+然后里面写明白参数列表。</p>
+<pre><code class="language-go">type ExampleFuncParameters struct {
+    Arg1 string
+    Arg2 bool `optional` // `optional` 仅是为了演示时方便识别，实际上没用。
+}
+</code></pre>
+<p>函数可以这么写：</p>
+<pre><code class="language-go">func ExampleFunc(args *ExampleFuncParameters) {
+    if !args.Arg2 {
+        args.Arg2 = false
+    }
+    // Do something...
+}
+</code></pre>
+<p>但是调用比较麻烦：</p>
+<pre><code class="language-go">ExampleFunc(&amp;ExampleFuncParameters{
+    Arg1: &quot;Example&quot;,
+    Arg2: true,
+})
+</code></pre>
+<h2>我的解决方案</h2>
+<p>这是我某次写项目时想到的。
+主要用了 Golang 的不定参数用法，比较完美。</p>
+<p>依然直接上例子：</p>
+<pre><code class="language-go">func MyMagicFunc(arg1 string, arg2a ...int) {
+    if len(arg2a) == 1 {
+        arg2 := arg2a[0]
+    }else{
+        arg2 := 0
+    }
+    // Do something
+}
+</code></pre>
+<p>这样不用定义 Struct ，且调用方便：</p>
+<pre><code class="language-go">MyMagicFunc(&quot;aaa&quot;) // OK
+MyMagicFunc(&quot;bbb&quot;, 2) // Also OK
+</code></pre>
+<p>就到这。</p>
+<h2>版权申明</h2>
+<p>顺便说一声，本博客除标明转载的部分，均为原创。若转载一般也是直接外链，除非他站无法正常访问。</p>
+<p>转载可以，不过请写明：</p>
+<blockquote>
+<p>Written By Tianle Xu <a href="mailto:xtl@xtlsoft.top"><a href="mailto:xtl@xtlsoft.top">xtl@xtlsoft.top</a></a> <a href="https://blog.xtlsoft.top/"><a href="https://blog.xtlsoft.top/">https://blog.xtlsoft.top/</a></a></p>
 </blockquote>
     </div>
 </div>

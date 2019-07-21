@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>普通主题 - 徐天乐 :: 技术博客</title>
+    <title>sudo 在 userns 的坑 - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">普通主题</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">sudo 在 userns 的坑</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -63,94 +63,78 @@
                 </li>
                     </ul>
     </div>
-    <div id="main" style="margin: 0px 15px; min-height: 90%;"><style>
-    .list-unstyled {
-        padding-left: 0px;
-        list-style: none;
-    }
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        sudo 在 userns 的坑        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2018-08-10 18:39:49 &nbsp; &nbsp;
+            分类: 旧稿        </small>
+    </h1>
+    <div>
+        <h2>由来</h2>
+<p>包：github.com/xtlsoft/container</p>
+<p>由于 Golang 将 Setsuid 等 Syscall 给去除了，所以目前我想到用 sudo 模拟。</p>
+<p>（没有库？Shell 来凑～）</p>
+<h2>问题</h2>
+<p>一代码：</p>
+<pre><code class="language-go">package main
 
-    .list-unstyled li {
-        display: block;
-        margin-bottom: 5px;
-    }
+import (
+    &quot;os&quot;
 
-    .xblog-list-card-container {
-        margin: 15px auto;
-        max-width: 1050px;
-        min-height: 400px;
-    }
+    &quot;github.com/xtlsoft/container&quot;
+)
 
-    .xblog-list-card-container .mdui-card-media {
-        background-position: center center;
-        background-repeat: no-repeat;
-        /* background-attachment: fixed; */
-        background-size: cover;
-        background-color: #464646;
-    }
+func main() {
 
-    .xblog-footer-nav-text {
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: 20px;
-        font-weight: 500;
-        -webkit-font-smoothing: antialiased;
-        height: 100%;
-        line-height: 24px;
-        padding-top: 24px;
-        width: 100%;
-    }
+    cmd := container.NewNS().
+        ApplyUTS().
+        ApplyPID().
+        ApplyIPC().
+        ApplyNet().
+        ApplyMount().
+        ApplyUser().
+        Command(&quot;sudo&quot;, &quot;-u&quot;, &quot;nobody&quot;, &quot;ls&quot;)
 
-    .xblog-footer-nav-text .xblog-footer-nav-direction {
-        font-size: 15px;
-        line-height: 18px;
-        margin-bottom: 1px;
-        opacity: 0.55;
-    }
-</style>
+    cmd.Stdout = os.Stdout
+    cmd.Stderr = os.Stderr
 
-<ul class="list-unstyled">
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/general/hello-world.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-11.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">Hello World</div>
-                                <div class="mdui-card-primary-subtitle">分类：普通主题</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    Hello, World!
-使用 GitHub Pages，继续愉快地玩耍！
-（觉得有用的旧文章均在...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/general/hello-world.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                        <img src="http://avatar.dawnlab.me/github/xtlsoft/" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                        <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2019-07-21 13:55:00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="mdui-color-theme" style="height: 96px;">
-    <div class="mdui-container">
-        <div class="mdui-row">
-                            <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                                        <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                    </div>
+    cmd.Start()
+
+    cmd.Wait()
+
+}
+</code></pre>
+<p>乍一看没啥，但是执行得到：</p>
+<pre><code class="language-plain">sudo: PERM_SUDOERS: setresuid(-1, 1, -1): 无效的参数
+sudo: 没有找到有效的 sudoers 资源，退出
+sudo: 无法初始化策略插件
+</code></pre>
+<p>WTF???</p>
+<h2>查找资料</h2>
+<p>恩，非常棒，Google 和 Bing 搜索都是 0 收录，StackOverflow 搜索也没人问这种问题。</p>
+<p>那么只有自己解决。</p>
+<h2>解决方案</h2>
+<p>恩，sudo 不能在 userns 内直接用。</p>
+<p>最后我的解决方案是：
+去掉</p>
+<pre><code class="language-go">    ApplyUser().
+</code></pre>
+<p>这一行。</p>
     </div>
+</div>
+<script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2019            </p>
         </div>
+    </div>    </div>
     <!-- <div class="mdui-color-blue-700" style="padding: 5px; height: 70px; margin-top: 20px; margin-bottom: 0px;">
         <p align="center" class="mdui-text-color-silver-500">Developed by xtlsoft, theme using MDUI</p>
         <p align="center" class="mdui-text-color-silver-500">&copy; 2016-2019 xtlsoft</p>
