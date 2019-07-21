@@ -84,7 +84,7 @@ $end = min($start + $vars['limit']['number'], count($rslt));
                     <a href="<?= $url ?>">继续阅读</a>
                     <hr class="mdui-divider" style="margin: 10px 0;" />
                     <div>
-                        <img src="http://avatar.dawnlab.me/github/<?= $v['author'] ?>/" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                        <img src="http://avatar.dawnlab.me/github//" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
                         <div>
                             <ul class="list-unstyled" style="margin-left: 60px;">
                                 <li><b>作者：</b><?= $v['author'] ?></li>
@@ -113,7 +113,7 @@ $end = min($start + $vars['limit']['number'], count($rslt));
                 <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
             <?php endif; ?>
             <?php if ($vars['limit']['page'] < ceil(count($rslt) / $vars['limit']['number'])) : ?>
-                <a class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6" style="height: 96px; text-align:right;" href="./<?= $vars['limit']['page'] + 1 ?>.html">
+                <a class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6" style="height: 96px; text-align:right;" <?php if (isset($vars['next_url'])) : ?> href="<?= $vars['next_url'] ?>" <?php else : ?> href="./<?= $vars['limit']['page'] + 1 ?>.html" <?php endif; ?>>
                     <div class="xblog-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="xblog-footer-nav-direction">Next</span>
