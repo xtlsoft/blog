@@ -84,7 +84,7 @@ $end = min($start + $vars['limit']['number'], count($rslt));
                     <a href="<?= $url ?>">继续阅读</a>
                     <hr class="mdui-divider" style="margin: 10px 0;" />
                     <div>
-                        <img src="http://avatar.dawnlab.me/github//" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                        <img src="http://avatar.dawnlab.me/github/<?= $v['author'] ?>/" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
                         <div>
                             <ul class="list-unstyled" style="margin-left: 60px;">
                                 <li><b>作者：</b><?= $v['author'] ?></li>
