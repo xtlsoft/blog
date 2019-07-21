@@ -5,7 +5,7 @@ template: list.html.php
 category: all
 limit:
   page: ${page}
-  number: 15
+  number: 10
 ```
 
 ```php
@@ -13,6 +13,6 @@ return array_map(
   function ($item) {
     return ['page'=>$item];
   },
-  range(1, ceil(getArticleNumber() / 15))
+  range(1, ceil(getArticleNumber() / 10))
 );
 ```

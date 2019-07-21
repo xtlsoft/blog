@@ -7,12 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?= $vars['title'] ?> - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
+    <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
     <script>
         function jump(url) {
             window.location.href = url;
         }
     </script>
+    <style>
+        body, html {
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body class="mdui-appbar-with-toolbar mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
@@ -46,4 +52,4 @@
             <?php endforeach; ?>
         </ul>
     </div>
-    <div id="main">
+    <div id="main" style="margin: 0px 15px; min-height: 90%;">
