@@ -15,7 +15,8 @@
         }
     </script>
     <style>
-        body, html {
+        body,
+        html {
             height: 100%;
         }
     </style>
@@ -40,6 +41,8 @@
             $navbar = [
                 ["name" => "首页", "icon" => "home", "link" => "/"],
                 ["name" => "分类", "icon" => "list", "link" => "/categories.html"],
+                ["name" => "归档", "icon" => "archive", "link" => "/archive.html"],
+                ["name" => "友情链接", "icon" => "link", "link" => "/link.html"],
                 ["name" => "个人主页", "icon" => "account_circle", "link" => "https://www.xtlsoft.top"],
                 ["name" => "Mail", "icon" => "mail", "link" => "mailto:xtl@xtlsoft.top"]
             ];
