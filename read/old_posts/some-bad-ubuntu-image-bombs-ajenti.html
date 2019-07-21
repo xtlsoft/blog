@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>普通主题 - 徐天乐 :: 技术博客</title>
+    <title>阅读文章 - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">普通主题</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">阅读文章</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -63,94 +63,26 @@
                 </li>
                     </ul>
     </div>
-    <div id="main" style="margin: 0px 15px; min-height: 90%;"><style>
-    .list-unstyled {
-        padding-left: 0px;
-        list-style: none;
-    }
-
-    .list-unstyled li {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .xblog-list-card-container {
-        margin: 15px auto;
-        max-width: 1050px;
-        min-height: 400px;
-    }
-
-    .xblog-list-card-container .mdui-card-media {
-        background-position: center center;
-        background-repeat: no-repeat;
-        /* background-attachment: fixed; */
-        background-size: cover;
-        background-color: #464646;
-    }
-
-    .xblog-footer-nav-text {
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: 20px;
-        font-weight: 500;
-        -webkit-font-smoothing: antialiased;
-        height: 100%;
-        line-height: 24px;
-        padding-top: 24px;
-        width: 100%;
-    }
-
-    .xblog-footer-nav-text .xblog-footer-nav-direction {
-        font-size: 15px;
-        line-height: 18px;
-        margin-bottom: 1px;
-        opacity: 0.55;
-    }
-</style>
-
-<ul class="list-unstyled">
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/general/hello-world.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-7.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">Hello World</div>
-                                <div class="mdui-card-primary-subtitle">分类：普通主题</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    Hello, World!
-使用 GitHub Pages，继续愉快地玩耍！
-（觉得有用的旧文章�...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/general/hello-world.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                        <img src="http://avatar.dawnlab.me/github/xtlsoft/" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                        <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2019-07-21 05:39:07</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="mdui-color-theme" style="height: 96px;">
-    <div class="mdui-container">
-        <div class="mdui-row">
-                            <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                                        <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        Ubuntu 安装 Ajenti 的坑        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2019-07-21 05:39:07 &nbsp; &nbsp;
+            分类: 旧稿        </small>
+    </h1>
+    <div>
+        <p><font style="background-color: rgb(255, 255, 255);">本博客搭建在ArukasCloud上面，用的rastasheep/ubuntu-sshd镜像，源用的cn.archive.ubuntu.com（日本服务器，但是图方便，和本地保持一致，用了中国区cdn）。</font></p><p><font style="background-color: rgb(255, 255, 255);">准备安装AjentiV服务器面板（本地安装一切正常，测试环境：VBox+Ubuntu Kylin 16.04 LTS，源：cn.archive.ubuntu.com）。</font></p><p><font style="background-color: rgb(255, 255, 255);">安装时，有一个依赖包，叫做apt-show-versions。这个可以查看安装应用的版本。就是在执行他的post-install脚本，出错了，返回255。</font></p><p><font style="background-color: rgb(255, 255, 255);">上网查资料，google、bing，都是没用的。尝试过apt -f install，换过源，也apt-get autoremove &amp;&amp; apt-get upgrade，任然无效。</font></p><p><font style="background-color: rgb(255, 255, 255);">还好不是什么重要的功能，没有Ajenti面板也可以运行。</font></p><p><font style="background-color: rgb(255, 255, 255);">于是，我就用之前的ubuntu开发经验，打包了一个自己的名为apt-show-versions且没有任何功能的包来蒙骗apt。</font></p><p><font style="background-color: rgb(255, 255, 255);">P.S. 这个Ubuntu14.04死活不能用dh_make，本地还没有14.04 Server LTS的环境，只好用ubuntu kylin开发者平台提供的debian目录。</font></p><p>由于过程比较繁琐，故提供一个一键修复命令：（请使用直接ROOT运行(sudo不行)）</p><pre>wget http://xtlsoft.github.io/files/sh/ubuntu/ajenti/fix-apt.sh &amp;&amp; chmod +x ./fix-apt.sh &amp;&amp; ./fix-apt.sh</pre>
     </div>
+</div>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2019            </p>
         </div>
+    </div>    </div>
     <!-- <div class="mdui-color-blue-700" style="padding: 5px; height: 70px; margin-top: 20px; margin-bottom: 0px;">
         <p align="center" class="mdui-text-color-silver-500">Developed by xtlsoft, theme using MDUI</p>
         <p align="center" class="mdui-text-color-silver-500">&copy; 2016-2019 xtlsoft</p>
