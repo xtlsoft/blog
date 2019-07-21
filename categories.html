@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分类列表 - 徐天乐 :: 技术博客</title>
+    <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
+    <link rel="stylesheet" href="/highlight.js/style.min.css" />
+    <script src="/mdui/js/mdui.min.js"></script>
+    <script>
+        function jump(url) {
+            window.location.href = url;
+        }
+    </script>
+    <style>
+        body, html {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+    <header>
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme-900">
+                <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
+                <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">分类列表</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
+                <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
+            </div>
+        </div>
+    </header>
+    <div class="mdui-drawer" id="drawer-main">
+        <ul class="mdui-list mdui-ripple">
+                                        <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                    <div onclick="jump('/');" class="mdui-list-item-content">首页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">list</i>
+                    <div onclick="jump('/categories.html');" class="mdui-list-item-content">分类</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
+                    <div onclick="jump('https://www.xtlsoft.top');" class="mdui-list-item-content">个人主页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">mail</i>
+                    <div onclick="jump('mailto:xtl@xtlsoft.top');" class="mdui-list-item-content">Mail</div>
+                </li>
+                    </ul>
+    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-container" style="margin: 20px 0px;">
+    <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-xl-5 mdui-grid-list">
+                    <div class="mdui-col">
+                <div class="mdui-grid-tile mdui-ripple">
+                    <a href="/category/old_posts/1.html"><img src="https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-14.png"/></a>
+                    <div class="mdui-grid-tile-actions">
+                        <div class="mdui-grid-tile-text">
+                            <div class="mdui-grid-tile-title">旧稿</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    <div class="mdui-col">
+                <div class="mdui-grid-tile mdui-ripple">
+                    <a href="/category/general/1.html"><img src="https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-14.png"/></a>
+                    <div class="mdui-grid-tile-actions">
+                        <div class="mdui-grid-tile-text">
+                            <div class="mdui-grid-tile-title">普通主题</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+</div>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2019            </p>
+        </div>
+    </div>    </div>
+    <!-- <div class="mdui-color-blue-700" style="padding: 5px; height: 70px; margin-top: 20px; margin-bottom: 0px;">
+        <p align="center" class="mdui-text-color-silver-500">Developed by xtlsoft, theme using MDUI</p>
+        <p align="center" class="mdui-text-color-silver-500">&copy; 2016-2019 xtlsoft</p>
+    </div> -->
+    </body>
+    <script type="text/javascript" src="/highlight.js/highlight.min.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</html>
