@@ -17,7 +17,7 @@ GitHub： <https://github.com/xtlsoft/RQO>
 ## 优点
 
 - 完全模块化，可以随意替换，各种框架模式都独立出来。
-- 基于 ReactPHP，非常迅速，原生支持协程（详见 https://github.com/xtlsoft/XCoroutine ）。
+- 基于 ReactPHP，非常迅速，原生支持协程（详见 <https://github.com/xtlsoft/XCoroutine> ）。
 - 无需多余的配置，没有冗余的代码，直接运行，一步直达。
 - 完全标准化，代码质量高，复用性强，使用了许多新特性。
 - 针对性强，开发周期短，跨平台，一份代码在 Windows，Linux，Mac 上都可以直接运行，不需要像 Swoole/Workerman 一样修改。
