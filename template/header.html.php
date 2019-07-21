@@ -47,10 +47,10 @@
                 ["name" => "Mail", "icon" => "mail", "link" => "mailto:xtl@xtlsoft.top"]
             ];
             ?>
-            <?php foreach ($navbar as $v) : ?>
+            <?php foreach ($navbar as $item) : ?>
                 <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons"><?= $v['icon'] ?></i>
-                    <div onclick="jump('<?= $v['link'] ?>');" class="mdui-list-item-content"><?= $v['name'] ?></div>
+                    <i class="mdui-list-item-icon mdui-icon material-icons"><?= $item['icon'] ?></i>
+                    <div onclick="jump('<?= $item['link'] ?>');" class="mdui-list-item-content"><?= $item['name'] ?></div>
                 </li>
             <?php endforeach; ?>
         </ul>

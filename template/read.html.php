@@ -1,8 +1,9 @@
-<?php include __DIR__ . "/header.html.php"; ?>
 <?php
 global $articles;
 $v = $articles[$vars['category']][$vars['offset']];
+$vars['title'] = $v['title'];
 ?>
+<?php include __DIR__ . "/header.html.php"; ?>
 <div class="mdui-typo">
     <h1>
         <?= $v['title'] ?>
