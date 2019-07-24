@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>普通主题 - 徐天乐 :: 技术博客</title>
+    <title>Ubuntu 18.04 中 php-dev 与 nodejs 冲突（libssl）解决方式 - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">普通主题</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">Ubuntu 18.04 中 php-dev 与 nodejs 冲突（libssl）解决方式</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -63,94 +63,51 @@
                 </li>
                     </ul>
     </div>
-    <div id="main" style="margin: 0px 15px; min-height: 90%;"><style>
-    .list-unstyled {
-        padding-left: 0px;
-        list-style: none;
-    }
-
-    .list-unstyled li {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .xblog-list-card-container {
-        margin: 15px auto;
-        max-width: 1050px;
-        min-height: 400px;
-    }
-
-    .xblog-list-card-container .mdui-card-media {
-        background-position: center center;
-        background-repeat: no-repeat;
-        /* background-attachment: fixed; */
-        background-size: cover;
-        background-color: #464646;
-    }
-
-    .xblog-footer-nav-text {
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: 20px;
-        font-weight: 500;
-        -webkit-font-smoothing: antialiased;
-        height: 100%;
-        line-height: 24px;
-        padding-top: 24px;
-        width: 100%;
-    }
-
-    .xblog-footer-nav-text .xblog-footer-nav-direction {
-        font-size: 15px;
-        line-height: 18px;
-        margin-bottom: 1px;
-        opacity: 0.55;
-    }
-</style>
-
-<ul class="list-unstyled">
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/general/hello-world.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-7.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">Hello World</div>
-                                <div class="mdui-card-primary-subtitle">分类：普通主题</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    Hello, World!
-使用 GitHub Pages，继续愉快地玩耍！
-（觉得有用的旧文章均在...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/general/hello-world.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                        <img src="http://avatar.dawnlab.me/github/xtlsoft/" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                        <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2019-07-21 13:55:00</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="mdui-color-theme" style="height: 96px;">
-    <div class="mdui-container">
-        <div class="mdui-row">
-                            <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                                        <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
-                    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        Ubuntu 18.04 中 php-dev 与 nodejs 冲突（libssl）解决方式        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2019-07-24 15:01:02 &nbsp; &nbsp;
+            分类: 服务运维        </small>
+    </h1>
+    <div>
+        <h2>由来</h2>
+<p>在 Windows Subsystem Linux (WSL) 上执行 PHP 拓展开发工作。例行安装 <code>php-dev</code> 包。</p>
+<p>提示我将拆卸 <code>npm</code>, <code>nodejs-dev</code>, <code>nodejs-gyp</code>, <code>nodejs</code>？</p>
+<h2>检查</h2>
+<p>翻查各种 apt 的输出，发现是 <code>php-dev</code> 依赖 <code>libssl-dev</code>，而 <code>nodejs-dev</code> 依赖 <code>libssl1.0-dev</code>，而这两个包实际上内容差不多（甚至完全一样），然后 Conflict 了。</p>
+<p>怎么办呢？</p>
+<p>正当我准备重新打 fake 包 <code>libssl-dev</code> 来解决这个问题的时候，我搜索到了一些东西。</p>
+<h2>搜索</h2>
+<p>发现并不是我第一次遇到这样的问题。我在 <code>deepin</code> 的论坛中查找到了类似问题。（好像是 <code>deb</code> 系的都存在过这样的问题？）</p>
+<p>附上链接：<a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=145483"><a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=145483">https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=145483</a></a> （挺老了）</p>
+<p>@jingle 叫重新 build <code>wiznote</code> 包（相当于此处的 <code>nodejs-dev</code> 包），但是我会选择打一个空包 <code>libssl-dev</code> 给 <code>php-dev</code> 吃。（之前也有用过这样的伎俩，详见装<code>ajenti</code>的那篇很老很老的文章）</p>
+<p>好，接下来一位同学提示直接修改 <code>/var/lib/dpkg/status</code>。</p>
+<h2>解决</h2>
+<p>没啥悬念</p>
+<pre><code class="language-sh">sudo vim /var/lib/dpkg/status
+# ------&gt; (vim console) /nodejs-dev/
+#   ----&gt; (Press 'N' key)
+#     --&gt; (jumped to  `nodejs-dev` segment)
+#       &gt; (delete `libssl1.0-dev (&gt;=xxxxx)` dependency (xxxxx can be the version))
+sudo apt install -y php-dev
+</code></pre>
+<h2>总结</h2>
+<p>希望软件源快更新 <code>php-dev</code> 的 <code>dependency</code>。</p>
     </div>
+</div>
+<script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2019            </p>
         </div>
+    </div>    </div>
     <!-- <div class="mdui-color-blue-700" style="padding: 5px; height: 70px; margin-top: 20px; margin-bottom: 0px;">
         <p align="center" class="mdui-text-color-silver-500">Developed by xtlsoft, theme using MDUI</p>
         <p align="center" class="mdui-text-color-silver-500">&copy; 2016-2019 xtlsoft</p>
