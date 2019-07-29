@@ -119,6 +119,10 @@ zephir build
     .xblog-comment-form .xblog-padding-left {
         padding-left: 5px;
     }
+	
+	.xblog-comment-form .mdui-col-xs-12 {
+		padding: 0px !important;
+	}
 
     .xblog-comment-form .mdui-btn {
         margin-top: 15px;
@@ -186,12 +190,13 @@ zephir build
         let form_obj = document.getElementById('comment_form');
         let name = form_obj.name.value;
         let email = form_obj.email.value;
-        let content = form_obj.content.innerHTML;
+        let content = form_obj.content.value;
         let time = Date.now();
         $$('#comment_submit_button').attr('disabled', 'true');
         commentWorker.create(name, email, content).then((data) => {
             $$('#comment_submit_button').removeAttr('disabled');
             form_obj.content.innerHTML = "";
+			form_obj.content.value = "";
             window.appendComment({
                 author: name,
                 email: email,
