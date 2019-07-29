@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>分类列表 - 徐天乐 :: 技术博客</title>
+    <title>使用 Zephir 开发 PHP 拓展 - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">分类列表</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">使用 Zephir 开发 PHP 拓展</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -63,50 +63,49 @@
                 </li>
                     </ul>
     </div>
-    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-container" style="margin: 20px 0px;">
-    <div class="mdui-row-xs-1 mdui-row-sm-2 mdui-row-md-3 mdui-row-lg-4 mdui-row-xl-5 mdui-grid-list">
-                    <div class="mdui-col">
-                <div class="mdui-grid-tile mdui-ripple">
-                    <a href="/category/old_posts/1.html"><img src="https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-14.png"/></a>
-                    <div class="mdui-grid-tile-actions">
-                        <div class="mdui-grid-tile-text">
-                            <div class="mdui-grid-tile-title">旧稿</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    <div class="mdui-col">
-                <div class="mdui-grid-tile mdui-ripple">
-                    <a href="/category/general/1.html"><img src="https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-14.png"/></a>
-                    <div class="mdui-grid-tile-actions">
-                        <div class="mdui-grid-tile-text">
-                            <div class="mdui-grid-tile-title">普通主题</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    <div class="mdui-col">
-                <div class="mdui-grid-tile mdui-ripple">
-                    <a href="/category/server/1.html"><img src="https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-14.png"/></a>
-                    <div class="mdui-grid-tile-actions">
-                        <div class="mdui-grid-tile-text">
-                            <div class="mdui-grid-tile-title">服务运维</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-                    <div class="mdui-col">
-                <div class="mdui-grid-tile mdui-ripple">
-                    <a href="/category/php/1.html"><img src="https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-14.png"/></a>
-                    <div class="mdui-grid-tile-actions">
-                        <div class="mdui-grid-tile-text">
-                            <div class="mdui-grid-tile-title">PHP Programming</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        使用 Zephir 开发 PHP 拓展        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2019-07-26 22:24:31 &nbsp; &nbsp;
+            分类: PHP Programming        </small>
+    </h1>
+    <div>
+        <p>Zephir 真是一个极佳的开发 PHP 拓展的语言，并且还有几个坑。</p>
+<blockquote>
+<p>这不是我的风格吗（</p>
+<p>——黎明余光</p>
+</blockquote>
+<p>好不开玩笑，步入正题。</p>
+<h2>为何</h2>
+<p>初见 Zephir 是某个大佬 star 了它，然后我才后知后觉地发现有这么个东西。其实去年就想写写关于它的文章（因为 Zephir 的中文资料少得可怜，中文文档还是谷歌机翻…），不过种种原因搁置了。</p>
+<p>由于<del>Zend Engine 的 C API 太难用了</del>我的 C 水平太菜了，并且<del>反手就是一个内存泄漏</del>不会好好管理内存，所以这种方便又<del>坑多</del>稳定的东西自然是个好选择。不过它真的能大幅度降低开发周期。</p>
+<p>多说一句，大名鼎鼎的 Phalcon 框架从 2.x 开始就是用 Zephir 写的了。</p>
+<h2>安装</h2>
+<p><del>如果去年写了这篇文章，那么安装还是个坑，那时候还没自动打包版，composer 装的依赖有坑。</del></p>
+<p>然而今年它着实在安装时还是附带了一个坑。</p>
+<p>首先是安装 <code>Zephir Parser</code> 拓展，比较简单，直接 <code>phpize</code> 后 <code>./configure &amp;&amp; make &amp;&amp; sudo make install</code> 即可。但是我还是碰到了一些锅，装 <code>php-dev</code> 时出了问题，详见上一篇文章。</p>
+<p>然后就是本体了。<code>Parser</code> 是 C 写的，然而编译器本体是 PHP 写的。有三种方式，phar 包，composer 全局安装，composer 局部安装。我自然是  <code>composer g install phalcon/zephir</code> 了。然而，依赖冲突！？我仔细看看，它居然 require 了一堆 3.4.* 的 Symfony 组件，而我本地的 psysh 都要求的是 4.x 。我并不想搞坏我这些全局包的依赖环境，所以选择了直接 phar 包全局。（然而到最后证明还是局部 composer 最棒，因为可以随便 hook 编译器，实现一些骚操作，比如 <a href="https://github.com/xtlsoft/zephir-c-call"><a href="https://github.com/xtlsoft/zephir-c-call">https://github.com/xtlsoft/zephir-c-call</a></a>）</p>
+<h2>Hello, World</h2>
+<p>这是必不可少的。</p>
+<pre><code class="language-sh">zephir init helloworld
+cd helloworld
+echo &quot;namespace Helloworld; class Hello { public static function say() { echo \&quot;Hello!\&quot;; } }&quot; &gt; helloworld/hello.zep
+zephir build
+</code></pre>
+<p>然后将 <code>extension = helloworld.so</code> 加入 <code>php.ini</code> 中，就可以通过如下调用看到效果了：</p>
+<pre><code class="language-php">&lt;?php
+\Helloworld\Hello::say();
+</code></pre>
+<p>结果输出：</p>
+<pre><code class="language-plain">Hello!
+</code></pre>
+    </div>
 </div>
+<script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
 </div>
 <div class="mdui-color-theme" style="height: 75px; margin: 0;">
     <div class="mdui-container">
