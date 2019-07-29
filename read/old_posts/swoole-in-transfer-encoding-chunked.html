@@ -231,8 +231,8 @@ $server-&gt;end(&quot;&quot;);
     window.parseTimeStamp = (time) => {
         var dat = new Date(time);
         var yr = dat.getFullYear().toString();
-        var mo = "" + (dat.getMonth() < 10 ? "0" : "") + dat.getMonth();
-        var dy = "" + (dat.getDay() < 10 ? "0" : "") + dat.getDay();
+        var mo = "" + (dat.getMonth() + 1 < 10 ? "0" : "") + (dat.getMonth() + 1);
+        var dy = "" + (dat.getDate() < 10 ? "0" : "") + dat.getDate();
         var hr = "" + (dat.getHours() < 10 ? "0" : "") + dat.getHours();
         var mi = "" + (dat.getMinutes() < 10 ? "0" : "") + dat.getMinutes();
         var se = "" + (dat.getSeconds() < 10 ? "0" : "") + dat.getSeconds();
