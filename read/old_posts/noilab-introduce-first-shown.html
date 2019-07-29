@@ -190,12 +190,19 @@ $ php ./start.php start -d
         let name = form_obj.name.value;
         let email = form_obj.email.value;
         let content = form_obj.content.innerHTML;
+        let time = Date.now();
         $$('#comment_submit_button').attr('disabled', 'true');
         commentWorker.create(name, email, content).then((data) => {
             $$('#comment_submit_button').removeAttr('disabled');
             form_obj.name.value = "";
             form_obj.email.value = "";
             form_obj.content.innerHTML = "";
+            window.appendComment({
+                author: name,
+                email: email,
+                content: content,
+                time: time
+            })
             mdui.alert("评论添加成功！编号：" + data.id.toString(), "提示");
         });
         return false;
@@ -210,18 +217,21 @@ $ php ./start.php start -d
         var se = "" + (dat.getSeconds() < 10 ? "0" : "") + dat.getSeconds();
         return yr + "-" + mo + "-" + dy + " " + hr + ":" + mi + ":" + se;
     }
+    window.appendComment = (v) => {
+        var elemStr = document.getElementById('comment_template').innerHTML;
+        elemStr = elemStr.replace('${author}', v.author);
+        elemStr = elemStr.replace('${email}', v.email);
+        elemStr = elemStr.replace('${content}', v.content);
+        elemStr = elemStr.replace('${time}', window.parseTimeStamp(v.time));
+        elemStr = elemStr.replace('${avatar}', "https://avatar.dawnlab.me/gravatar/" + md5(v.email));
+        var elem = $$(elemStr);
+        $$("#comment").prepend(elem);
+    };
     commentWorker.get().then((data) => {
         for (var k in data) {
             if (data[k] === null) continue;
             var v = data[k];
-            var elemStr = document.getElementById('comment_template').innerHTML;
-            elemStr = elemStr.replace('${author}', v.author);
-            elemStr = elemStr.replace('${email}', v.email);
-            elemStr = elemStr.replace('${content}', v.content);
-            elemStr = elemStr.replace('${time}', window.parseTimeStamp(v.time));
-            elemStr = elemStr.replace('${avatar}', "https://avatar.dawnlab.me/gravatar/" + md5(v.email));
-            var elem = $$(elemStr);
-            $$("#comment").append(elem);
+            window.appendComment(v);
         }
     });
 </script><script>
