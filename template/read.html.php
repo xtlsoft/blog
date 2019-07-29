@@ -17,7 +17,10 @@ $vars['title'] = $v['title'];
     <div>
         <?= $v['content'] ?>
     </div>
+    <br />
+    <h1>评论</h1>
 </div>
+<?php include __DIR__ . "/comment.html.php"; ?>
 <script>
     mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
 </script>

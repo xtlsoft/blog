@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * xtlsoft.blog
+ * 
+ * @author Tianle Xu <xtl@xtlsoft.top>
+ * @license MIT
+ */
+
 require_once "vendor/autoload.php";
 
 use League\CommonMark\CommonMarkConverter;
