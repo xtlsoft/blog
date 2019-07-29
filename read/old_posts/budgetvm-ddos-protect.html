@@ -163,8 +163,6 @@
         $$('#comment_submit_button').attr('disabled', 'true');
         commentWorker.create(name, email, content).then((data) => {
             $$('#comment_submit_button').removeAttr('disabled');
-            form_obj.name.value = "";
-            form_obj.email.value = "";
             form_obj.content.innerHTML = "";
             window.appendComment({
                 author: name,
