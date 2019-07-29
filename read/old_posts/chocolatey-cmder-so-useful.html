@@ -157,6 +157,7 @@ Cmder——不仅仅是好看。我从来没有推荐过任何一款 linux 下�
             <input type="submit" id="comment_submit_button" class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme" value="新评论">
         </form>
     </div>
+    <div id="comment_container"></div>
 </div>
 <script type="text/plain" id="comment_template">
     <div class="mdui-card">
@@ -213,7 +214,7 @@ Cmder——不仅仅是好看。我从来没有推荐过任何一款 linux 下�
         elemStr = elemStr.replace('${time}', window.parseTimeStamp(v.time));
         elemStr = elemStr.replace('${avatar}', "https://avatar.dawnlab.me/gravatar/" + md5(v.email));
         var elem = $$(elemStr);
-        $$("#comment").prepend(elem);
+        $$("#comment_container").prepend(elem);
     };
     commentWorker.get().then((data) => {
         for (var k in data) {
