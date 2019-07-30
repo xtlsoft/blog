@@ -102,7 +102,7 @@ $end = min($start + $vars['limit']['number'], count($rslt));
     <div class="mdui-container">
         <div class="mdui-row">
             <?php if ($vars['limit']['page'] != 1) : ?>
-                <a class="mdui-col-xs-2 mdui-col-sm-6 mdui-ripple mdui-color-theme" style="height: 96px; text-align:left;" href="./<?= $vars['limit']['page'] - 1 ?>.html">
+                <a class="mdui-col-xs-6 mdui-col-sm-6 mdui-ripple mdui-color-theme" style="height: 96px; text-align:left;" href="./<?= $vars['limit']['page'] - 1 ?>.html">
                     <div class="xblog-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_back</i>
                         <span class="xblog-footer-nav-direction">Back</span>
@@ -110,10 +110,10 @@ $end = min($start + $vars['limit']['number'], count($rslt));
                     </div>
                 </a>
             <?php else : ?>
-                <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
+                <div class="mdui-col-xs-6 mdui-col-sm-6"></div>
             <?php endif; ?>
             <?php if ($vars['limit']['page'] < ceil(count($rslt) / $vars['limit']['number'])) : ?>
-                <a class="mdui-ripple mdui-color-theme mdui-col-xs-10 mdui-col-sm-6" style="height: 96px; text-align:right;" <?php if (isset($vars['next_url'])) : ?> href="<?= $vars['next_url'] ?>" <?php else : ?> href="./<?= $vars['limit']['page'] + 1 ?>.html" <?php endif; ?>>
+                <a class="mdui-ripple mdui-color-theme mdui-col-xs-6 mdui-col-sm-6" style="height: 96px; text-align:right;" <?php if (isset($vars['next_url'])) : ?> href="<?= $vars['next_url'] ?>" <?php else : ?> href="./<?= $vars['limit']['page'] + 1 ?>.html" <?php endif; ?>>
                     <div class="xblog-footer-nav-text">
                         <i class="mdui-icon material-icons">arrow_forward</i>
                         <span class="xblog-footer-nav-direction">Next</span>
@@ -121,7 +121,7 @@ $end = min($start + $vars['limit']['number'], count($rslt));
                     </div>
                 </a>
             <?php else : ?>
-                <div class="mdui-col-xs-2 mdui-col-sm-6"></div>
+                <div class="mdui-col-xs-6 mdui-col-sm-6"></div>
             <?php endif; ?>
         </div>
     </div>
