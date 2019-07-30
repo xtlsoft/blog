@@ -276,7 +276,7 @@
             $$('#comment_form textarea').prepend('#' + id.toString() + ' ');
         },
         share: (id) => {
-            var url = location.protocol + "://" + location.host + location.pathname +
+            var url = location.protocol + "//" + location.host + location.pathname +
                 '#comment_id_' + id.toString();
             mdui.alert("本评论链接：<textarea rows=1>" + url + "</textarea>", "分享");
         },
