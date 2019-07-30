@@ -31,7 +31,7 @@
                 <a href="javascript:;" class="mdui-typo-title mdui-ripple"><?= $vars['title'] ?></a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
-                <a href="https://www.xtlsoft.top/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
+                <a href="https://www.xtlsoft.top/zh-cn" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
             </div>
         </div>
     </header>
@@ -43,7 +43,7 @@
                 ["name" => "分类", "icon" => "list", "link" => "/categories.html"],
                 ["name" => "归档", "icon" => "archive", "link" => "/archive.html"],
                 ["name" => "友情链接", "icon" => "link", "link" => "/link.html"],
-                ["name" => "个人主页", "icon" => "account_circle", "link" => "https://www.xtlsoft.top"],
+                ["name" => "个人主页", "icon" => "account_circle", "link" => "https://www.xtlsoft.top/zh-cn"],
                 ["name" => "Mail", "icon" => "mail", "link" => "mailto:xtl@xtlsoft.top"]
             ];
             ?>

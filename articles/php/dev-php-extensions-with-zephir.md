@@ -26,7 +26,7 @@ Zephir 真是一个极佳的开发 PHP 拓展的语言，并且还有几个坑�
 
 首先是安装 `Zephir Parser` 拓展，比较简单，直接 `phpize` 后 `./configure && make && sudo make install` 即可。但是我还是碰到了一些锅，装 `php-dev` 时出了问题，详见上一篇文章。
 
-然后就是本体了。`Parser` 是 C 写的，然而编译器本体是 PHP 写的。有三种方式，phar 包，composer 全局安装，composer 局部安装。我自然是  `composer g install phalcon/zephir` 了。然而，依赖冲突！？我仔细看看，它居然 require 了一堆 3.4.* 的 Symfony 组件，而我本地的 psysh 都要求的是 4.x 。我并不想搞坏我这些全局包的依赖环境，所以选择了直接 phar 包全局。（然而到最后证明还是局部 composer 最棒，因为可以随便 hook 编译器，实现一些骚操作，比如 <https://github.com/xtlsoft/zephir-c-call>）
+然后就是本体了。`Parser` 是 C 写的，然而编译器本体是 PHP 写的。有三种方式，phar 包，composer 全局安装，composer 局部安装。我自然是 `composer g install phalcon/zephir` 了。然而，依赖冲突！？我仔细看看，它居然 require 了一堆 3.4.\* 的 Symfony 组件，而我本地的 psysh 都要求的是 4.x 。我并不想搞坏我这些全局包的依赖环境，所以选择了直接 phar 包全局。（然而到最后证明还是局部 composer 最棒，因为可以随便 hook 编译器，实现一些骚操作，比如 <https://github.com/xtlsoft/zephir-c-call>）
 
 ## Hello, World
 
@@ -51,4 +51,3 @@ zephir build
 ```plain
 Hello!
 ```
-
