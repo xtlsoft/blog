@@ -236,7 +236,7 @@ Iterator：可以使用 foreach</p>
     window.commentUI = {
         replyTo: (id) => {
             window.location.hash = "comment";
-            $$('#comment_form textarea').prepend('#' + id.toString() + ' ');
+            $$('#comment_form textarea').prepend('#' + id.toString() + ' ')[0].click();
         },
         share: (id) => {
             var url = location.protocol + "//" + location.host + location.pathname +

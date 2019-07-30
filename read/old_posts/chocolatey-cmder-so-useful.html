@@ -244,7 +244,7 @@ Cmder——不仅仅是好看。我从来没有推荐过任何一款 linux 下�
     window.commentUI = {
         replyTo: (id) => {
             window.location.hash = "comment";
-            $$('#comment_form textarea').prepend('#' + id.toString() + ' ');
+            $$('#comment_form textarea').prepend('#' + id.toString() + ' ')[0].click();
         },
         share: (id) => {
             var url = location.protocol + "//" + location.host + location.pathname +

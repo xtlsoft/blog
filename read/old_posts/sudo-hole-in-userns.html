@@ -273,7 +273,7 @@ sudo: 无法初始化策略插件
     window.commentUI = {
         replyTo: (id) => {
             window.location.hash = "comment";
-            $$('#comment_form textarea').prepend('#' + id.toString() + ' ');
+            $$('#comment_form textarea').prepend('#' + id.toString() + ' ')[0].click();
         },
         share: (id) => {
             var url = location.protocol + "//" + location.host + location.pathname +
