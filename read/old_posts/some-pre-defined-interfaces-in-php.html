@@ -255,7 +255,7 @@ Iterator：可以使用 foreach</p>
                         if (rslt.status === 'error') {
                             setTimeout(() => {
                                 progress_dialog.close();
-                            }, 300);
+                            }, 1000);
                             mdui.alert('删除评论错误：' + rslt.error);
                         } else {
                             window.location.reload();

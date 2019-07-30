@@ -269,7 +269,7 @@ echo $func(5); // 120
                         if (rslt.status === 'error') {
                             setTimeout(() => {
                                 progress_dialog.close();
-                            }, 300);
+                            }, 1000);
                             mdui.alert('删除评论错误：' + rslt.error);
                         } else {
                             window.location.reload();
