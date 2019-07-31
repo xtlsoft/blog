@@ -9,6 +9,7 @@ window.$$ = mdui.JQ;
 window.commentWorker = {
     basePath: "/comment-worker/",
     calculatePath: () => {
+        if (window.commentPath) return window.commentWorker.basePath + window.commentPath;
         if (window.location.pathname.substr(0, 6) !== "/read/") throw new Error("URL Error");
         if (window.location.pathname.substr(-5) !== ".html") throw new Error("URL Error");
         return window.commentWorker.basePath +
