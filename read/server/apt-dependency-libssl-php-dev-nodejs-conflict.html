@@ -81,8 +81,8 @@
 <p>正当我准备重新打 fake 包 <code>libssl-dev</code> 来解决这个问题的时候，我搜索到了一些东西。</p>
 <h2>搜索</h2>
 <p>发现并不是我第一次遇到这样的问题。我在 <code>deepin</code> 的论坛中查找到了类似问题。（好像是 <code>deb</code> 系的都存在过这样的问题？）</p>
-<p>附上链接：<a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=145483"><a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=145483">https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=145483</a></a> （挺老了）</p>
-<p>@jingle 叫重新 build <code>wiznote</code> 包（相当于此处的 <code>nodejs-dev</code> 包），但是我会选择打一个空包 <code>libssl-dev</code> 给 <code>php-dev</code> 吃。（之前也有用过这样的伎俩，详见装<code>ajenti</code>的那篇很老很老的文章）</p>
+<p>附上链接：<a href="https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=145483">https://bbs.deepin.org/forum.php?mod=viewthread&amp;tid=145483</a> （挺老了）</p>
+<p><a href="https://www.github.com/jingle">@jingle</a> 叫重新 build <code>wiznote</code> 包（相当于此处的 <code>nodejs-dev</code> 包），但是我会选择打一个空包 <code>libssl-dev</code> 给 <code>php-dev</code> 吃。（之前也有用过这样的伎俩，详见装<code>ajenti</code>的那篇很老很老的文章）</p>
 <p>好，接下来一位同学提示直接修改 <code>/var/lib/dpkg/status</code>。</p>
 <h2>解决</h2>
 <p>没啥悬念</p>

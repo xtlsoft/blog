@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CentOS 安装 postfix 的坑 - 徐天乐 :: 技术博客</title>
+    <title>为项目更新过时的 composer 依赖 - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">CentOS 安装 postfix 的坑</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">为项目更新过时的 composer 依赖</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/zh-cn" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -65,27 +65,28 @@
     </div>
     <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
     <h1>
-        CentOS 安装 postfix 的坑        <br />
+        为项目更新过时的 composer 依赖        <br />
         <small>
             作者: xtlsoft &nbsp; &nbsp;
-            时间: 2017-08-06 12:52:18 &nbsp; &nbsp;
-            分类: 旧稿        </small>
+            时间: 2019-07-31 14:05:26 &nbsp; &nbsp;
+            分类: PHP Programming        </small>
     </h1>
     <div>
         <h2>由来</h2>
-<p>我想要在我的 BudgetVM 服务器上搭建一个企业邮件服务器。</p>
-<h2>问题症状</h2>
-<p>在 <code>service postfix start</code> 时，总是不行。
-使用 <code>systemctl status postfix.service -l</code>，查看日志，发现：</p>
-<pre><code class="language-plain">Aug 06 12:42:58 XTLSOFT postfix/master[28061]: fatal: open lock file /var/lib/postfix/master.lock: cannot open file: Permission denied
-</code></pre>
+<p>发现 <code>commonmark-ext-autolink</code> 会对于 <code>&lt;https://link-to-some-site.tld&gt;</code> 这种格式的链接解析两次，双重嵌套 <code>&lt;a&gt;</code> 标签。</p>
+<p>我刚刚准备提 <code>issue</code> ，就发现这个 bug 在 <code>version 0.3.1</code> 或 <code>1.x</code> 中已经被解决了。回来更新吧！</p>
+<p>配置中手动更新版本，<code>composer update</code>！</p>
+<p><code>Dependency resolve failed</code></p>
+<p>emmm…… 我明明改了其它依赖都是版本 <code>*</code> 啊！</p>
 <h2>解决</h2>
-<p>尝试 <code>chmod 7777 /var/lib/postfix &amp;&amp; rm /var/lib/postfix/master.lock -f</code> 失败。
-原讨论地址： <a href="https://www.linuxquestions.org/questions/linux-server-73/open-lock-file-var-lib-postfix-master-lock-cannot-open-file-permission-denied-700674/">https://www.linuxquestions.org/questions/linux-server-73/open-lock-file-var-lib-postfix-master-lock-cannot-open-file-permission-denied-700674/</a></p>
-<p>其实只需要：<code>chmod 755 /</code>
-然后就好了。</p>
-<h2>小结</h2>
-<p>真是诡异的解决办法。。。</p>
+<p>解决问题很粗暴：</p>
+<pre><code class="language-sh">rm ./composer.lock -f
+rm ./vendor -rf
+composer install
+</code></pre>
+<p>结束。</p>
+<h2>后记</h2>
+<p>文章真好水。</p>
     </div>
 </div>
 <script src="/comment/comment.js" type="text/javascript"></script>

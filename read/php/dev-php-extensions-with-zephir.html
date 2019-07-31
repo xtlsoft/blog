@@ -86,7 +86,7 @@
 <p><del>如果去年写了这篇文章，那么安装还是个坑，那时候还没自动打包版，composer 装的依赖有坑。</del></p>
 <p>然而今年它着实在安装时还是附带了一个坑。</p>
 <p>首先是安装 <code>Zephir Parser</code> 拓展，比较简单，直接 <code>phpize</code> 后 <code>./configure &amp;&amp; make &amp;&amp; sudo make install</code> 即可。但是我还是碰到了一些锅，装 <code>php-dev</code> 时出了问题，详见上一篇文章。</p>
-<p>然后就是本体了。<code>Parser</code> 是 C 写的，然而编译器本体是 PHP 写的。有三种方式，phar 包，composer 全局安装，composer 局部安装。我自然是 <code>composer g install phalcon/zephir</code> 了。然而，依赖冲突！？我仔细看看，它居然 require 了一堆 3.4.* 的 Symfony 组件，而我本地的 psysh 都要求的是 4.x 。我并不想搞坏我这些全局包的依赖环境，所以选择了直接 phar 包全局。（然而到最后证明还是局部 composer 最棒，因为可以随便 hook 编译器，实现一些骚操作，比如 <a href="https://github.com/xtlsoft/zephir-c-call"><a href="https://github.com/xtlsoft/zephir-c-call">https://github.com/xtlsoft/zephir-c-call</a></a>）</p>
+<p>然后就是本体了。<code>Parser</code> 是 C 写的，然而编译器本体是 PHP 写的。有三种方式，phar 包，composer 全局安装，composer 局部安装。我自然是 <code>composer g install phalcon/zephir</code> 了。然而，依赖冲突！？我仔细看看，它居然 require 了一堆 3.4.* 的 Symfony 组件，而我本地的 psysh 都要求的是 4.x 。我并不想搞坏我这些全局包的依赖环境，所以选择了直接 phar 包全局。（然而到最后证明还是局部 composer 最棒，因为可以随便 hook 编译器，实现一些骚操作，比如 <a href="https://github.com/xtlsoft/zephir-c-call">https://github.com/xtlsoft/zephir-c-call</a>）</p>
 <h2>Hello, World</h2>
 <p>这是必不可少的。</p>
 <pre><code class="language-sh">zephir init helloworld
