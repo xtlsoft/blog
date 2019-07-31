@@ -2,6 +2,7 @@
 route: /link.html
 title: 友情链接
 template: common.html.php
+comment: link
 ```
 
 # 友情链接
