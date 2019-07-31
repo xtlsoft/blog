@@ -14,10 +14,12 @@ use League\CommonMark\Environment;
 use League\CommonMark\Extras\CommonMarkExtrasExtension;
 use Symfony\Component\Yaml\Yaml;
 use Webuni\CommonMark\TableExtension\TableExtension;
+use League\CommonMark\Ext\Autolink\InlineMentionParser;
 
 $environment = Environment::createCommonMarkEnvironment();
 $environment->addExtension(new CommonMarkExtrasExtension());
 $environment->addExtension(new TableExtension());
+$environment->addInlineParser(InlineMentionParser::createGithubHandleParser());
 $converter = new CommonMarkConverter([], $environment);
 
 echo shell_exec("mkdir -p dist && cd dist && git init && cd ..");
