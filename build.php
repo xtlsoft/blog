@@ -13,7 +13,7 @@ use League\CommonMark\CommonMarkConverter;
 use League\CommonMark\Environment;
 use League\CommonMark\Extras\CommonMarkExtrasExtension;
 use Symfony\Component\Yaml\Yaml;
-use Webuni\CommonMark\TableExtension\TableExtension;
+use League\CommonMark\Ext\Table\TableExtension;
 use League\CommonMark\Ext\Autolink\InlineMentionParser;
 
 $environment = Environment::createCommonMarkEnvironment();
