@@ -228,8 +228,8 @@ composer install
         var elemStr = document.getElementById('comment_template').innerHTML;
         elemStr = elemStr.replace(/\${author}/g, v.author);
         elemStr = elemStr.replace(/\${email}/g, v.email);
-        v.content = $$('<script type="text/plain">' + v.content + "</script>")[0].innerText;
-        elemStr = elemStr.replace(/\${content}/g, v.content);
+        var content = v.content.replace(/\<(.*)\>/g, '');
+        elemStr = elemStr.replace(/\${content}/g, content);
         elemStr = elemStr.replace(/\${time}/g, window.parseTimeStamp(v.time));
         elemStr = elemStr.replace(/\${avatar}/g, "https://avatar.dawnlab.me/gravatar/" + md5(v.email));
         elemStr = elemStr.replace(/\${id}/g, v.id.toString());
@@ -291,8 +291,7 @@ composer install
             $$('.xblog-xs-no-padding').removeClass('xblog-no-padding')
         }
     });
-</script>
-<script>
+</script><script>
     mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
 </script>
 </div>

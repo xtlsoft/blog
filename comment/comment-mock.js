@@ -16,7 +16,7 @@ window.commentWorker = {
                 {
                     author: "comment-bot",
                     email: "bot@comment.dev.local",
-                    content: "test comment",
+                    content: "test comment <script>alert('evil');</script>",
                     time: Date.now()
                 }
             ]);
