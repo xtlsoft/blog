@@ -246,6 +246,7 @@ $ php ./start.php start -d
         var elemStr = document.getElementById('comment_template').innerHTML;
         elemStr = elemStr.replace(/\${author}/g, v.author);
         elemStr = elemStr.replace(/\${email}/g, v.email);
+        v.content = $$("<pre>" + v.content + "</pre>")[0].innerText;
         elemStr = elemStr.replace(/\${content}/g, v.content);
         elemStr = elemStr.replace(/\${time}/g, window.parseTimeStamp(v.time));
         elemStr = elemStr.replace(/\${avatar}/g, "https://avatar.dawnlab.me/gravatar/" + md5(v.email));
@@ -308,7 +309,8 @@ $ php ./start.php start -d
             $$('.xblog-xs-no-padding').removeClass('xblog-no-padding')
         }
     });
-</script><script>
+</script>
+<script>
     mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
 </script>
 </div>
