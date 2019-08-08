@@ -234,7 +234,7 @@ export SCREEN=:1
         var elemStr = document.getElementById('comment_template').innerHTML;
         elemStr = elemStr.replace(/\${author}/g, v.author);
         elemStr = elemStr.replace(/\${email}/g, v.email);
-        v.content = $$("<pre>" + v.content + "</pre>")[0].innerText;
+        v.content = $$('<script type="text/plain">' + v.content + "</script>")[0].innerText;
         elemStr = elemStr.replace(/\${content}/g, v.content);
         elemStr = elemStr.replace(/\${time}/g, window.parseTimeStamp(v.time));
         elemStr = elemStr.replace(/\${avatar}/g, "https://avatar.dawnlab.me/gravatar/" + md5(v.email));
