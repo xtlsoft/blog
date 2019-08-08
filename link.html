@@ -271,10 +271,12 @@
     }
     window.appendComment = (v) => {
         var elemStr = document.getElementById('comment_template').innerHTML;
+        v.author = v.author.replace(/\<(.*)\>/g, '');
         elemStr = elemStr.replace(/\${author}/g, v.author);
+        v.email = v.email.replace(/\<(.*)\>/g, '');
         elemStr = elemStr.replace(/\${email}/g, v.email);
-        var content = v.content.replace(/\<(.*)\>/g, '');
-        elemStr = elemStr.replace(/\${content}/g, content);
+        v.content = v.content.replace(/\<(.*)\>/g, '');
+        elemStr = elemStr.replace(/\${content}/g, v.content);
         elemStr = elemStr.replace(/\${time}/g, window.parseTimeStamp(v.time));
         elemStr = elemStr.replace(/\${avatar}/g, "https://avatar.dawnlab.me/gravatar/" + md5(v.email));
         elemStr = elemStr.replace(/\${id}/g, v.id.toString());
