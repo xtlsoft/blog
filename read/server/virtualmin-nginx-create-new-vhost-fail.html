@@ -229,13 +229,16 @@ Can't use string (&quot;/home/www/website&quot;) as an ARRAY ref while &quot;str
         var se = "" + (dat.getSeconds() < 10 ? "0" : "") + dat.getSeconds();
         return yr + "-" + mo + "-" + dy + " " + hr + ":" + mi + ":" + se;
     }
+    window.stripTags = (v) => {
+        return v.replace('<', '&lt;').replace('>', '&gt;');
+    };
     window.appendComment = (v) => {
         var elemStr = document.getElementById('comment_template').innerHTML;
-        v.author = v.author.replace(/\<(.*)\>/g, '');
+        v.author = window.stripTags(v.author);
         elemStr = elemStr.replace(/\${author}/g, v.author);
-        v.email = v.email.replace(/\<(.*)\>/g, '');
+        v.email = window.stripTags(v.email);
         elemStr = elemStr.replace(/\${email}/g, v.email);
-        v.content = v.content.replace(/\<(.*)\>/g, '');
+        v.content = window.stripTags(v.content);
         elemStr = elemStr.replace(/\${content}/g, v.content);
         elemStr = elemStr.replace(/\${time}/g, window.parseTimeStamp(v.time));
         elemStr = elemStr.replace(/\${avatar}/g, "https://avatar.dawnlab.me/gravatar/" + md5(v.email));
