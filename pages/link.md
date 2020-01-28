@@ -14,7 +14,7 @@ comment: link
 |          黎明余光           |  <https://blog.lim-light.com> |
 |           折影轻梦          |    <https://i.chainwon.com>   |
 |         SakuraLove          | <https://blog.sakuralove.cn>  |
-|         Molly&Fancy         |    <http://www.momosan.cc>    |
+|         Molly's Blog         |    <http://www.momosan.cc>    |
 |        小霖的梦花园         |     <https://xiaolin.in/>     |
 |         猫与向日葵          |      <https://imjad.cn/>      |
 |           高浩裕            |      <http://ghyer.com/>      |
