@@ -25,6 +25,7 @@ comment: link
 | Gogo - 流转着绮丽光芒的秘境 |    <https://blog.gogo.moe>    |
 |           Mathor            |    <https://wmathor.com/>     |
 |           小易 Uce          |   <https://www.xiaoyiblog.cc>  |
+| 土间被活埋の小破站 | <https://www.umr2333.com> |
 
 ## 添加友情链接
 
