@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edge 和 Chrome 在 textarea 的 DOM API 上的一个小区别 - 徐天乐 :: 技术博客</title>
+    <title>WSL 2 在 Windows 10 Ver 2004 的一些 Bug - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">Edge 和 Chrome 在 textarea 的 DOM API 上的一个小区别</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">WSL 2 在 Windows 10 Ver 2004 的一些 Bug</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/zh-cn" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -65,35 +65,51 @@
     </div>
     <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
     <h1>
-        Edge 和 Chrome 在 textarea 的 DOM API 上的一个小区别        <br />
+        WSL 2 在 Windows 10 Ver 2004 的一些 Bug        <br />
         <small>
             作者: xtlsoft &nbsp; &nbsp;
-            时间: 2019-07-31 14:16:03 &nbsp; &nbsp;
-            分类: 前端        </small>
+            时间: 2020-05-31 12:37:02 &nbsp; &nbsp;
+            分类: 日常使用        </small>
     </h1>
     <div>
-        <p><del>标题真长</del></p>
-<h2>组件的样子</h2>
-<pre><code class="language-html">&lt;textarea id=&quot;test_textarea&quot;&gt;&lt;/textarea&gt;
+        <p>更新了 Microsoft Windows 10 Version 2004，期待已久的 WSL 2 着实让我失望了一回。</p>
+<h2>Migration</h2>
+<p>从 WSL 1 迁移到 WSL 2 并不是非常 painless，尽管提供了一键转换脚本。</p>
+<p>刚刚更新的系统是无法直接使用 WSL 2 的，需要前往 <a href="https://aka.ms/wsl2kernel">https://aka.ms/wsl2kernel</a> 下载 WSL 2 内核更新组件并手动安装。当然这不是个事儿。</p>
+<p>接下来就是将原来 WSL 1 的容器升级至 WSL 2。</p>
+<pre><code class="language-bash">$ wsl.exe --list --verbose
+  NAME      STATE           VERSION
+* Ubuntu    Running         1
 </code></pre>
-<p>然后向内输入内容：<code>Hello, World</code></p>
-<h2>在 Edge 上</h2>
-<pre><code class="language-javascript">let elem = document.findElementById(&quot;test_textarea&quot;);
-console.log(elem.value);
-// Reply: Hello, World
-console.log(elem.innerHTML);
-// Reply: Hello, World
+<p>于是我们</p>
+<pre><code class="language-bash">$ wsl.exe --set-version Ubuntu 2
+Please wait until...
 </code></pre>
-<h2>在 Chrome 上</h2>
-<pre><code class="language-javascript">let elem = document.findElementById(&quot;test_textarea&quot;);
-console.log(elem.value);
-// Reply: Hello, World
-console.log(elem.innerHTML);
-// Reply: null
+<p>于是开始了无尽的等待。尽管提示只需要几分钟，可是在我配备 SSD 的机器上，整个过程花费了大约两个小时。</p>
+<h2>Not Responding</h2>
+<p>如果更新中途通过其他终端唤起 <code>wsl.exe</code>，会导致卡死。强制结束 WSL 相关进程和服务，重新启动 Hyper-V 服务等都没有效果，此时唤起 <code>wsl.exe</code> 无论添加任何参数都会处于假死状态。</p>
+<p>解决方法：关闭快速启动，进行深度重启，多次重启后可以通过：</p>
+<pre><code class="language-bash">$ wsl.exe --list --verbose
+  NAME      STATE           VERSION
+* Ubuntu    Stopped         1
 </code></pre>
-<h2>后记</h2>
-<p><del>文章真好水</del></p>
-<p>就酱</p>
+<p>来判断正常与否。</p>
+<h2>Memory Leak</h2>
+<p>在迁移途中，我发现 <code>vmmem</code> 占用了 <code>4.16 GiB / 8.00 GiB</code> 的内存。</p>
+<p>经过查找，GitHub 上有 issue 反映了这个问题，是由于 Linux 的内存缓存机制导致虚假分配了过多的内存给 WSL。</p>
+<p>微软目前正在寻找该问题的解决方案，对于我们来说，可以通过一个 <code>crontab</code> 来定期释放内存：</p>
+<p><a href="https://github.com/microsoft/WSL/issues/4166#issuecomment-526725261">https://github.com/microsoft/WSL/issues/4166#issuecomment-526725261</a></p>
+<p>这里给出了详细的解决方案。</p>
+<h2>Serial Devices</h2>
+<p>我的 esp32 开发工作流原本位于 WSL 下，但是由于使用 Hypervisor Platform 的 WSL 2 没有提供任何 interact 的 api, 目前只有三个选择：</p>
+<ol>
+<li>将工具链移到 Windows Host OS 下</li>
+<li>直接使用 Hypervisor 启动虚拟机，并分配串口设备，使用 Linux 的块设备流特性等转发块设备</li>
+<li>探索 Hyper-V 的隐藏 API</li>
+</ol>
+<p>在更新之前需要谨慎考虑。</p>
+<h2>Network Issues</h2>
+<p>这次 WSL 相当于一个虚拟机，不能共用 Network 了。特别是使用宽带连接时，不可以直接共享网络给子系统（这是 Hyper-V 的通病）。针对这种情况，解决方案只有开启透明端口转发等。由于解决方案比较通用，不再赘述。</p>
     </div>
 </div>
 <link rel="stylesheet" href="/comment/comment.css" />
