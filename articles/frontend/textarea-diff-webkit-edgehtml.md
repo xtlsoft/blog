@@ -15,7 +15,7 @@
 ## 在 Edge 上
 
 ```javascript
-let elem = document.findElementById('test_textarea');
+let elem = document.findElementById("test_textarea");
 console.log(elem.value);
 // Reply: Hello, World
 console.log(elem.innerHTML);
@@ -25,7 +25,7 @@ console.log(elem.innerHTML);
 ## 在 Chrome 上
 
 ```javascript
-let elem = document.findElementById('test_textarea');
+let elem = document.findElementById("test_textarea");
 console.log(elem.value);
 // Reply: Hello, World
 console.log(elem.innerHTML);
