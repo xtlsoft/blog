@@ -27,6 +27,7 @@ comment: link
 |           小易 Uce          |   <https://www.xiaoyiblog.cc>  |
 | 土间被活埋の小破站 | <https://www.umr2333.com> |
 | Kiritake Kumi | <https://blog.mxpkx.com/> |
+| 泽 | <https://blog.stzo.cn/> |
 
 ## 添加友情链接
 
