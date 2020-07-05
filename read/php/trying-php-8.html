@@ -435,6 +435,39 @@ Length of str is: 1146880
 php -d 'memory_limit=2G' bench02.php  0.91s user 0.03s system 99% cpu 0.938 total
 </code></pre>
 <p>足足差了 10 倍。</p>
+<h4>如果改一改 <code>bench02.php</code> 的参数</h4>
+<p>我们将 <code>c</code>（测试字符串的长度为 $len_0 \times 2^c$）修改为较小值，同时缩小 <code>n</code> 的数值。</p>
+<pre><code class="language-php">&lt;?php
+
+$str = 'A LovEly CAt iN a CaPiTALized CITY.';
+$str2 = '';
+
+$c = 3;
+
+while ($c --) {
+        $str .= $str;
+}
+
+echo 'Length of str is: ' . strlen($str) . &quot;\r\n&quot;;
+
+$n = 500;
+
+while ($n --) {
+        $str2 = strtolower($str);
+}
+</code></pre>
+<p>结果出乎意料，但在情理之中：</p>
+<pre><code class="language-bash">➜  lab time /usr/bin/php bench02_re.php
+Length of str is: 280
+/usr/bin/php bench02_re.php  0.00s user 0.01s system 98% cpu 0.014 total
+➜  lab time php bench02_re.php
+Length of str is: 280
+php bench02_re.php  0.02s user 0.00s system 99% cpu 0.022 total
+</code></pre>
+<p>这一轮 PHP 7.4.7 几乎比 PHP 8.0.0 快了一倍。</p>
+<p>不难猜测，这种速度上的差别是由于 PHP 8.0.0 的 VM 启动耗时增加造成的。在 <code>1205</code> 模式的 JIT 下，每次使用 CLI 启动一个 PHP 程序（在没有配置全局 Opcache 的情况下），VM 需要进行“预“编译。这个时间是非常可观的（毕竟需要启动一个编译器），特别是在项目文件特别巨大的情况下。</p>
+<p>显然，在先进的 JIT 处理器中，这可以通过 Hotspot 等方式绕过。在 PHP 中，则需要将 <code>1205</code> 切换到 <code>1255</code> 模式。但是在常见的 PHP CLI 性能有关应用程序（一般的 CLI Utility 对于 VM 启动时间方面的要求其实并不是很苛刻，对于用户来说 100ms 的延时是 tolerable 的），例如常驻内存的 WebServer 中，的确需要对所有代码进行预编译来获得最佳性能。这个时候就需要我们按需选择。当然待推广后各大库可以通过增加 <code>&lt;&lt;jit&gt;&gt;</code> Attribute 的方式来标记，这时就无需全局 JIT 了。当然，如果 PHP 团队能够实现更加智能的 Hotspot 算法，那将是最好的解决办法，但是其中的开发成本可能是 PHP 社区一时无法承受的。</p>
+<p>接下来我将会用更多的测试来展示这一性能损耗的具体情况及避免方式/调优方法。</p>
     </div>
 </div>
 <link rel="stylesheet" href="/comment/comment.css" />
