@@ -352,3 +352,108 @@ Use composer self-update --rollback to return to version 1.10.1
 ```
 
 然后就不会出现报错了。
+
+## 性能的狂欢
+
+### 一些没用的 Microbench
+
+测试机器：
+
+```bash
+Model: ThinkPad E490
+CPU: Intel Core i5-8265U @ 8x 1.8GHz
+Kernel: x86_64 Linux 4.19.104
+OS: Ubuntu 18.04 bionic
+RAM: 8192MiB
+```
+
+测试环境：
+
+```bash
+➜  lab php -v
+PHP 8.0.0alpha1 (cli) (built: Jul  5 2020 18:04:50) ( ZTS )
+Copyright (c) The PHP Group
+Zend Engine v4.0.0-dev, Copyright (c) Zend Technologies
+    with Zend OPcache v8.0.0alpha1, Copyright (c), by Zend Technologies
+    with JIT
+
+➜  lab /usr/bin/php -v
+PHP 7.4.7 (cli) (built: Jun 12 2020 07:44:05) ( NTS )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    with Zend OPcache v7.4.7, Copyright (c), by Zend Technologies
+```
+
+下文中 `php` 均为 PHP 8.0.0 alpha1，`/usr/bin/php` 均为 PHP 7.4.7。
+
+#### 毫无意义的 `bench01.php`
+
+（随手写个大循环看看）
+
+```php
+<?php
+
+$n = 10000;
+
+$arr = [];
+
+while ($n --) {
+        $arr[$n] = 120 + 123 - 213 * 123 / 12;
+        $c = 10000;
+        while ($c --) {
+                $arr[$n] *= 10;
+                $arr[$n] -= 9 * $arr[$n];
+        }
+}
+```
+
+结果：
+
+```bash
+➜  lab time /usr/bin/php bench01.php
+/usr/bin/php bench01.php  3.63s user 0.02s system 99% cpu 3.650 total
+➜  lab time php bench01.php
+php bench01.php  1.98s user 0.01s system 99% cpu 1.993 total
+```
+
+可以看出，性能近乎翻倍。
+
+#### 测试 `strtolower` 的 `bench02.php`
+
+`LOCALE` 已经设置为 `C`。
+
+代码：
+
+```php
+<?php
+
+$str = 'A LovEly CAt iN a CaPiTALized CITY.';
+$str2 = '';
+
+$c = 15;
+
+while ($c --) {
+        $str .= $str;
+}
+
+echo 'Length of str is: ' . strlen($str) . "\r\n";
+
+$n = 10000;
+
+while ($n --) {
+        $str2 = strtolower($str);
+}
+```
+
+结果：
+
+```bash
+➜  lab time /usr/bin/php -d 'memory_limit=2G' bench02.php
+Length of str is: 1146880
+/usr/bin/php -d 'memory_limit=2G' bench02.php  11.49s user 0.01s system 99% cpu 11.496 total
+➜  lab time php -d 'memory_limit=2G' bench02.php
+Length of str is: 1146880
+php -d 'memory_limit=2G' bench02.php  0.91s user 0.03s system 99% cpu 0.938 total
+```
+
+足足差了 10 倍。
