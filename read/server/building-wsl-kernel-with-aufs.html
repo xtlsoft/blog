@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>友情链接 - 徐天乐 :: 技术博客</title>
+    <title>编译带有 AUFS 支持的 WSL 内核 - 徐天乐 :: 技术博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -28,7 +28,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 技术博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">友情链接</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">编译带有 AUFS 支持的 WSL 内核</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/zh-cn" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -64,97 +64,67 @@
                     </ul>
     </div>
     <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        编译带有 AUFS 支持的 WSL 内核        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2020-07-24 09:13:22 &nbsp; &nbsp;
+            分类: 服务运维        </small>
+    </h1>
     <div>
-        <h1>友情链接</h1>
-<p>这里有一些友情链接。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align: center">  站名</th>
-<th style="text-align: center">  网址</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center">黎明余光</td>
-<td style="text-align: center"> <a href="https://blog.lim-light.com">https://blog.lim-light.com</a></td>
-</tr>
-<tr>
-<td style="text-align: center">  折影轻梦</td>
-<td style="text-align: center"> <a href="https://i.chainwon.com">https://i.chainwon.com</a></td>
-</tr>
-<tr>
-<td style="text-align: center">SakuraLove</td>
-<td style="text-align: center"><a href="https://blog.sakuralove.cn">https://blog.sakuralove.cn</a></td>
-</tr>
-<tr>
-<td style="text-align: center">Molly’s Blog</td>
-<td style="text-align: center"><a href="http://www.momosan.cc">http://www.momosan.cc</a></td>
-</tr>
-<tr>
-<td style="text-align: center">小霖的梦花园</td>
-<td style="text-align: center"><a href="https://xiaolin.in/">https://xiaolin.in/</a></td>
-</tr>
-<tr>
-<td style="text-align: center">猫与向日葵</td>
-<td style="text-align: center"><a href="https://imjad.cn/">https://imjad.cn/</a></td>
-</tr>
-<tr>
-<td style="text-align: center">高浩裕</td>
-<td style="text-align: center"><a href="http://ghyer.com/">http://ghyer.com/</a></td>
-</tr>
-<tr>
-<td style="text-align: center">Ivan</td>
-<td style="text-align: center"><a href="https://yfgeek.com/">https://yfgeek.com/</a></td>
-</tr>
-<tr>
-<td style="text-align: center">做梦王</td>
-<td style="text-align: center"><a href="https://www.zomw.cn">https://www.zomw.cn</a></td>
-</tr>
-<tr>
-<td style="text-align: center">深海小涛</td>
-<td style="text-align: center"><a href="https://www.xtlink.cn">https://www.xtlink.cn</a></td>
-</tr>
-<tr>
-<td style="text-align: center">Hans362</td>
-<td style="text-align: center"><a href="https://blog.hans362.cn/">https://blog.hans362.cn/</a></td>
-</tr>
-<tr>
-<td style="text-align: center">Gogo - 流转着绮丽光芒的秘境</td>
-<td style="text-align: center"><a href="https://blog.gogo.moe">https://blog.gogo.moe</a></td>
-</tr>
-<tr>
-<td style="text-align: center">Mathor</td>
-<td style="text-align: center"><a href="https://wmathor.com/">https://wmathor.com/</a></td>
-</tr>
-<tr>
-<td style="text-align: center">小易 Uce</td>
-<td style="text-align: center"><a href="https://www.xiaoyiblog.cc">https://www.xiaoyiblog.cc</a></td>
-</tr>
-<tr>
-<td style="text-align: center">土间被活埋の小破站</td>
-<td style="text-align: center"><a href="https://www.umr2333.com">https://www.umr2333.com</a></td>
-</tr>
-<tr>
-<td style="text-align: center">Kiritake Kumi</td>
-<td style="text-align: center"><a href="https://blog.yazawaniko.com/">https://blog.yazawaniko.com/</a></td>
-</tr>
-<tr>
-<td style="text-align: center">泽</td>
-<td style="text-align: center"><a href="https://blog.stzo.cn/">https://blog.stzo.cn/</a></td>
-</tr>
-</tbody>
-</table>
-<h2>添加友情链接</h2>
-<p>您可以直接发起 Pull Request 到 <a href="https://github.com/xtlsoft/blog/blob/master/pages/link.md">https://github.com/xtlsoft/blog/blob/master/pages/link.md</a>。</p>
-<p>您也可以在下面评论留言，但是我可能不会及时处理。</p>
-<p>注：发起 Pull Request 时，<code>commit log</code> 请填写为 <code>content(links): add link 你的英文名称</code>。</p>
+        <h2>由来</h2>
+<p>切换到 WSL 2 的目的是做容器开发。然而，WSL 2 Kernel 并没有编译进（实际上接近废弃）的 AUFS，但是我的部分需求不能被 OverlayFS 满足，仍然需要使用 AUFS。</p>
+<p>显然我不能通过 <code>apt-get</code> 直接安装一个内核。</p>
+<h2>更改内核</h2>
+<p>从网上查找更换 WSL 内核的方法，一共找到了两种：</p>
+<ol>
+<li>
+<p>直接替换 <code>C:\System32\lxss\tools\kernel</code> 文件</p>
+</li>
+<li>
+<p>在用户目录下新建 <code>.wslconfig</code> 文件，写入：</p>
+<pre><code class="language-ini">[wsl2]
+kernel=KERNEL_PATH
+</code></pre>
+<p>将 <code>KERNEL_PATH</code> 替换为内核路径。</p>
+</li>
+</ol>
+<h2>编译一个内核</h2>
+<p>既然要更换内核，那么我们首先就要有一个内核。</p>
+<h3>Pre-built Version</h3>
+<p>这里我编译好了一个，可以在 <a href="https://github.com/xtlsoft/WSL2-Kernel-AUFS/releases/tag/wsl-aufs">https://github.com/xtlsoft/WSL2-Kernel-AUFS/releases/tag/wsl-aufs</a> 下载，记得点个 star 呀。 :-D</p>
+<h3>Let’s do it our own</h3>
+<p>首先 Clone 下 WSL-Kernel 和 AUFS-Standalone 的代码库。</p>
+<pre><code class="language-bash">git clone https://github.com/microsoft/WSL2-Linux-Kernel kernel
+git clone https://github.com/sfjro/aufs4-standalone aufs4
+</code></pre>
+<p>这时请注意您所 Clone 的 Linux 内核版本。在我写这篇文章时，它是 4.19.84，所以我们应选择 <code>aufs4.19.63+</code>。</p>
+<pre><code class="language-bash">cd aufs4
+git checkout aufs4.19.63+
+</code></pre>
+<p>然后退回到 <code>kernel</code> 目录下，开始打 Patch。</p>
+<pre><code class="language-bash">cat ../aufs4/aufs4-mmap.patch | patch -p1
+cat ../aufs4/aufs4-base.patch | patch -p1
+cat ../aufs4/aufs4-kbuild.patch | patch -p1
+</code></pre>
+<p>三个 Patch 的顺序无关。</p>
+<p>这时可不能直接开始编译！仔细阅读 AUFS 文档，还有事情没有干！</p>
+<pre><code class="language-bash">cp ../aufs4/Documentation . -r
+cp ../aufs4/fs/ . -r
+cp ../aufs4-standalone/include/uapi/linux/aufs_type.h ./include/uapi/linux
+</code></pre>
+<p>接下来我们来修改一下编译配置，在 <code>Microsoft/config-wsl</code> 中任意位置增加一行：</p>
+<pre><code class="language-ini">CONFIG_AUFS_FS=y
+</code></pre>
+<p>最后，就可以开始编译了！</p>
+<pre><code class="language-bash">make KCONFIG_CONFIG=Microsoft/config-wsl -j8
+</code></pre>
+<p>过程中会问你一些问题，我除了 AUFS Debug 都选了 y。</p>
+<p>最后会在当前目录生成 <code>vmlinuz</code>，在 <code>arch/x86/boot</code> 下生成 <code>bzImage</code>。</p>
+<p>Enjoy!</p>
     </div>
 </div>
-    <script>
-        window.commentPath = 'link';
-    </script>
-    <link rel="stylesheet" href="/comment/comment.css" />
+<link rel="stylesheet" href="/comment/comment.css" />
 <script src="/comment/md5.js" type="text/javascript"></script>
 <script src="/comment/comment.js" type="text/javascript"></script>
 <div class="mdui-typo">
