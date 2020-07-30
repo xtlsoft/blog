@@ -94,9 +94,9 @@ window.commentPresenter.init = function (elem_id) {
             $$('#comment_submit_button').removeAttr('disabled');
             form_obj.content.innerHTML = "";
             form_obj.content.value = "";
-            mail_md5 = md5(dmail);
+            mail_md5 = md5(email);
             if (hide_mail) {
-                dmail = '(hidden)';
+                email = '(hidden)';
             }
             window.appendComment({
                 author: name,
