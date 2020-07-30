@@ -46,7 +46,7 @@
 }
 
 .x-comment-submit-left input {
-    margin-top: unset;
+    margin-top: unset !important;
 }
 
 .x-comment-submit-left label {
