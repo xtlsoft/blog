@@ -1,0 +1,32 @@
+<div class="mdui-container-fluid xblog-comment" id="comment">
+    <div class="mdui-card">
+        <form id="comment_form" class="xblog-comment-form mdui-row mdui-card-content">
+            <h2>新评论</h2>
+            <div
+                class="xblog-padding-right xblog-xs-no-padding mdui-textfield mdui-textfield-floating-label mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-6">
+                <label class="mdui-textfield-label">昵称</label>
+                <input maxlength="25" class="mdui-textfield-input" name="name" type="text" />
+            </div>
+            <div
+                class="xblog-padding-left xblog-xs-no-padding mdui-textfield mdui-textfield-floating-label mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-6">
+                <label class="mdui-textfield-label">邮箱</label>
+                <input maxlength="110" class="mdui-textfield-input" name="email" type="email" />
+            </div>
+            <div
+                class="mdui-textfield mdui-textfield-floating-label mdui-col-xs-12 mdui-col-sm-12 mdui-col-md-12 mdui-col-lg-12 mdui-col-xs-12">
+                <label class="mdui-textfield-label">评论内容</label>
+                <textarea maxlength="350" name="content" class="mdui-textfield-input"></textarea>
+            </div>
+            <input type="submit" id="comment_submit_button"
+                class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme" value="新评论">
+            <label class="mdui-switch">
+                <input type="checkbox" name="hide_mail" />
+                <i class="mdui-switch-icon"></i>
+                隐藏邮箱
+            </label>
+            <button type="button" id="comment_delete_all_button"
+                class="mdui-btn mdui-float-right mdui-ripple">删除所有评论</button>
+        </form>
+    </div>
+    <div id="comment_container"></div>
+</div>
