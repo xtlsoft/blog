@@ -22,7 +22,7 @@
     </style>
 </head>
 
-<body class="mdui-appbar-with-toolbar mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+<body class="mdui-appbar-with-toolbar mdui-theme-layout-auto mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
     <header>
         <div class="mdui-appbar mdui-appbar-fixed">
             <div class="mdui-toolbar mdui-color-theme-900">

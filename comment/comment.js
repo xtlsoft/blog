@@ -15,12 +15,14 @@ window.commentWorker = {
         return window.commentWorker.basePath +
             window.location.pathname.substr(6, window.location.pathname.length - 11);
     },
-    create: (author, email, content) => {
+    create: (author, email, content, hide_mail = false) => {
         let time = Date.now();
         let req = {
             author: author,
             email: email,
             content: content,
+            hide_mail: hide_mail,
+            md5: md5(email),
             time: time
         };
         return new Promise((resolve, reject) => {
@@ -70,7 +72,7 @@ window.commentWorker = {
 
 window.commentPresenter = {
     template: "<div class=\"mdui-card\" id=\"comment_id_${id}\">\n        <div class=\"mdui-card-header\">\n            <img class=\"mdui-card-header-avatar\" src=\"${avatar}\" \/>\n            <div class=\"mdui-card-header-title\">${author}<\/div>\n            <div class=\"mdui-card-header-subtitle\">${email}, ${time}<\/div>\n        <\/div>\n        <div class=\"mdui-card-content\">\n            <div class=\"mdui-typo\">${content}<\/div>\n        <\/div>\n        <div class=\"mdui-card-actions\">\n            <button class=\"mdui-btn mdui-btn-icon\" onclick=\"window.commentUI.replyTo(${id});\">\n                <i class=\"mdui-icon material-icons\">reply<\/i>\n            <\/button>\n            <button class=\"mdui-btn mdui-btn-icon\" onclick=\"window.commentUI.share(${id});\">\n                <i class=\"mdui-icon material-icons\">share<\/i>\n            <\/button>\n            <button class=\"mdui-btn mdui-btn-icon mdui-float-right\" onclick=\"window.commentUI.delete(${id});\">\n                <i class=\"mdui-icon material-icons\">delete_forever<\/i>\n            <\/button>\n        <\/div>\n    <\/div>",
-    basic_template: "<div class=\"mdui-container-fluid xblog-comment\" id=\"comment\">\n    <div class=\"mdui-card\">\n        <form id=\"comment_form\" class=\"xblog-comment-form mdui-row mdui-card-content\">\n            <h2>\u65b0\u8bc4\u8bba<\/h2>\n            <div class=\"xblog-padding-right xblog-xs-no-padding mdui-textfield mdui-textfield-floating-label mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-6\">\n                <label class=\"mdui-textfield-label\">\u6635\u79f0<\/label>\n                <input maxlength=\"25\" class=\"mdui-textfield-input\" name=\"name\" type=\"text\" \/>\n            <\/div>\n            <div class=\"xblog-padding-left xblog-xs-no-padding mdui-textfield mdui-textfield-floating-label mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-6\">\n                <label class=\"mdui-textfield-label\">\u90ae\u7bb1<\/label>\n                <input maxlength=\"110\" class=\"mdui-textfield-input\" name=\"email\" type=\"email\" \/>\n            <\/div>\n            <div class=\"mdui-textfield mdui-textfield-floating-label mdui-col-xs-12 mdui-col-sm-12 mdui-col-md-12 mdui-col-lg-12 mdui-col-xs-12\">\n                <label class=\"mdui-textfield-label\">\u8bc4\u8bba\u5185\u5bb9<\/label>\n                <textarea maxlength=\"350\" name=\"content\" class=\"mdui-textfield-input\"><\/textarea>\n            <\/div>\n            <input type=\"submit\" id=\"comment_submit_button\" class=\"mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme\" value=\"\u65b0\u8bc4\u8bba\">\n            <button type=\"button\" id=\"comment_delete_all_button\" class=\"mdui-btn mdui-float-right mdui-ripple\">\u5220\u9664\u6240\u6709\u8bc4\u8bba<\/button>\n        <\/form>\n    <\/div>\n    <div id=\"comment_container\"><\/div>\n<\/div>"
+    basic_template: "<div class=\"mdui-container-fluid xblog-comment\" id=\"comment\">\n    <div class=\"mdui-card\">\n        <form id=\"comment_form\" class=\"xblog-comment-form mdui-row mdui-card-content\">\n            <h2>\u65b0\u8bc4\u8bba<\/h2>\n            <div\n                class=\"xblog-padding-right xblog-xs-no-padding mdui-textfield mdui-textfield-floating-label mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-6\">\n                <label class=\"mdui-textfield-label\">\u6635\u79f0<\/label>\n                <input maxlength=\"25\" class=\"mdui-textfield-input\" name=\"name\" type=\"text\" \/>\n            <\/div>\n            <div\n                class=\"xblog-padding-left xblog-xs-no-padding mdui-textfield mdui-textfield-floating-label mdui-col-xs-12 mdui-col-sm-6 mdui-col-md-6 mdui-col-lg-6 mdui-col-xs-6\">\n                <label class=\"mdui-textfield-label\">\u90ae\u7bb1<\/label>\n                <input maxlength=\"110\" class=\"mdui-textfield-input\" name=\"email\" type=\"email\" \/>\n            <\/div>\n            <div\n                class=\"mdui-textfield mdui-textfield-floating-label mdui-col-xs-12 mdui-col-sm-12 mdui-col-md-12 mdui-col-lg-12 mdui-col-xs-12\">\n                <label class=\"mdui-textfield-label\">\u8bc4\u8bba\u5185\u5bb9<\/label>\n                <textarea maxlength=\"350\" name=\"content\" class=\"mdui-textfield-input\"><\/textarea>\n            <\/div>\n            <input type=\"submit\" id=\"comment_submit_button\"\n                class=\"mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme\" value=\"\u65b0\u8bc4\u8bba\">\n            <label class=\"mdui-switch\">\n                <input type=\"checkbox\" name=\"hide_mail\" \/>\n                <i class=\"mdui-switch-icon\"><\/i>\n                \u9690\u85cf\u90ae\u7bb1\n            <\/label>\n            <button type=\"button\" id=\"comment_delete_all_button\"\n                class=\"mdui-btn mdui-float-right mdui-ripple\">\u5220\u9664\u6240\u6709\u8bc4\u8bba<\/button>\n        <\/form>\n    <\/div>\n    <div id=\"comment_container\"><\/div>\n<\/div>"
 };
 
 window.commentPresenter.init = function (elem_id) {
@@ -81,21 +83,27 @@ window.commentPresenter.init = function (elem_id) {
         let name = form_obj.name.value;
         let email = form_obj.email.value;
         let content = form_obj.content.value;
+        let hide_mail = form_obj.hide_mail.value;
         if (!name || !email || !content) {
             mdui.alert('请将表单填写完整！', '提示');
             return false;
         }
         let time = Date.now();
         $$('#comment_submit_button').attr('disabled', 'true');
-        commentWorker.create(name, email, content).then((data) => {
+        commentWorker.create(name, email, content, hide_mail).then((data) => {
             $$('#comment_submit_button').removeAttr('disabled');
             form_obj.content.innerHTML = "";
             form_obj.content.value = "";
+            mail_md5 = md5(mail);
+            if (hide_mail) {
+                mail = '(hidden)';
+            }
             window.appendComment({
                 author: name,
                 email: email,
                 content: content,
                 time: time,
+                md5: mail_md5,
                 id: data.id
             })
             mdui.alert("评论添加成功！编号：" + data.id.toString(), "提示");
@@ -127,7 +135,7 @@ window.commentPresenter.init = function (elem_id) {
         v.content = window.stripTags(v.content);
         elemStr = elemStr.replace(/\${content}/g, v.content);
         elemStr = elemStr.replace(/\${time}/g, window.parseTimeStamp(v.time));
-        elemStr = elemStr.replace(/\${avatar}/g, "https://avatar.dawnlab.me/gravatar/" + md5(v.email));
+        elemStr = elemStr.replace(/\${avatar}/g, "https://avatar.dawnlab.me/gravatar/" + v.md5);
         elemStr = elemStr.replace(/\${id}/g, v.id.toString());
         var elem = $$(elemStr);
         $$("#comment_container").prepend(elem);
@@ -161,7 +169,7 @@ window.commentPresenter.init = function (elem_id) {
                         }
                     });
                 },
-                (val) => {
+                (_val) => {
                     return false;
                 }, {
                     type: 'text',
