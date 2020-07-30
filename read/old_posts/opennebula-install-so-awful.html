@@ -13,7 +13,6 @@
         function jump(url) {
             window.location.href = url;
         }
-        if (xx_prev) xx_prev();
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
             mdui.JQ("body").addClass("mdui-theme-layout-dark");
         }
