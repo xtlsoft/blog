@@ -83,7 +83,7 @@ window.commentPresenter.init = function (elem_id) {
         let name = form_obj.name.value;
         let email = form_obj.email.value;
         let content = form_obj.content.value;
-        let hide_mail = form_obj.hide_mail.value;
+        let hide_mail = form_obj.hide_mail.checked;
         if (!name || !email || !content) {
             mdui.alert('请将表单填写完整！', '提示');
             return false;
