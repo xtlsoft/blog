@@ -39,3 +39,12 @@
 .xblog-no-padding {
     padding: 0 !important;
 }
+
+.x-comment-submit-left {
+    margin-top: 15px;
+}
+
+.x-comment-submit-left label {
+    margin-top: unset;
+    margin-left: 13px;
+}
