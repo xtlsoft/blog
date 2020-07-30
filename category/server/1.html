@@ -13,11 +13,19 @@
         function jump(url) {
             window.location.href = url;
         }
+        if (xx_prev) xx_prev();
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            mdui.JQ("body").addClass("mdui-theme-layout-dark");
+        }
     </script>
     <style>
         body,
         html {
             height: 100%;
+        }
+
+        .mdui-theme-layout-dark .mdui-typo code {
+            color: #eeeeee !important;
         }
     </style>
 </head>
@@ -112,7 +120,7 @@
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/server/building-wsl-kernel-with-aufs.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-7.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-8.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -143,7 +151,7 @@
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/server/virtualmin-nginx-create-new-vhost-fail.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-2.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-1.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -176,7 +184,7 @@ Can't use stri...
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/server/apt-dependency-libssl-php-dev-nodejs-conflict.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-3.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-12.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
