@@ -42,9 +42,13 @@
 
 .x-comment-submit-left {
     margin-top: 15px;
+    display: inline-block;
+}
+
+.x-comment-submit-left input {
+    margin-top: unset;
 }
 
 .x-comment-submit-left label {
-    margin-top: unset;
     margin-left: 13px;
 }
