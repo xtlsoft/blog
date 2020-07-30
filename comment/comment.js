@@ -94,9 +94,9 @@ window.commentPresenter.init = function (elem_id) {
             $$('#comment_submit_button').removeAttr('disabled');
             form_obj.content.innerHTML = "";
             form_obj.content.value = "";
-            mail_md5 = md5(mail);
+            mail_md5 = md5(dmail);
             if (hide_mail) {
-                mail = '(hidden)';
+                dmail = '(hidden)';
             }
             window.appendComment({
                 author: name,
@@ -135,6 +135,9 @@ window.commentPresenter.init = function (elem_id) {
         v.content = window.stripTags(v.content);
         elemStr = elemStr.replace(/\${content}/g, v.content);
         elemStr = elemStr.replace(/\${time}/g, window.parseTimeStamp(v.time));
+        if (!v.md5) {
+            v.md5 = md5(v.email);
+        }
         elemStr = elemStr.replace(/\${avatar}/g, "https://avatar.dawnlab.me/gravatar/" + v.md5);
         elemStr = elemStr.replace(/\${id}/g, v.id.toString());
         var elem = $$(elemStr);
