@@ -28,6 +28,7 @@ comment: link
 | 土间被活埋の小破站 | <https://www.umr2333.com> |
 | Kiritake Kumi | <https://blog.yazawaniko.com/> |
 | 泽 | <https://blog.stzo.cn/> |
+| 星辰日记 | <https://blog.xsot.cn/> |
 
 ## 添加友情链接
 
