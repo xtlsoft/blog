@@ -17,13 +17,15 @@
                 <label class="mdui-textfield-label">评论内容</label>
                 <textarea maxlength="350" name="content" class="mdui-textfield-input"></textarea>
             </div>
-            <input type="submit" id="comment_submit_button"
-                class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme" value="新评论">
-            <label class="mdui-switch">
-                <input type="checkbox" name="hide_mail" />
-                <i class="mdui-switch-icon"></i>
-                隐藏邮箱
-            </label>
+            <div class="x-comment-submit-left">
+                <input type="submit" id="comment_submit_button"
+                    class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme" value="新评论">
+                <label class="mdui-switch">
+                    <input type="checkbox" name="hide_mail" />
+                    <i class="mdui-switch-icon"></i>
+                    <span>隐藏邮箱</span>
+                </label>
+            </div>
             <button type="button" id="comment_delete_all_button"
                 class="mdui-btn mdui-float-right mdui-ripple">删除所有评论</button>
         </form>
