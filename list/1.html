@@ -13,9 +13,16 @@
         function jump(url) {
             window.location.href = url;
         }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            mdui.JQ("body").addClass("mdui-theme-layout-dark");
+
+        function autodetect() {
+            if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                mdui.JQ("body").removeClass("mdui-theme-layout-dark");
+            }
         }
+
+        mdui.JQ(document).ready(function() {
+            autodetect();
+        });
     </script>
     <style>
         body,
@@ -29,7 +36,7 @@
     </style>
 </head>
 
-<body class="mdui-appbar-with-toolbar mdui-theme-layout-auto mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+<body class="mdui-appbar-with-toolbar mdui-theme-layout-dark mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
     <header>
         <div class="mdui-appbar mdui-appbar-fixed">
             <div class="mdui-toolbar mdui-color-theme-900">
@@ -119,7 +126,7 @@
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/server/building-wsl-kernel-with-aufs.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-5.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-4.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -150,7 +157,7 @@
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/php/trying-php-8.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-6.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-3.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -181,7 +188,7 @@
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/daily/wsl_2_bugs_2004.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-11.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-1.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -211,7 +218,7 @@
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/general/aliyun-account-find-back.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-11.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-8.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -243,7 +250,7 @@
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/announcement/tencent-id-being-banned-2020.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-8.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-1.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -277,7 +284,7 @@
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/general/2019-final.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-7.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-9.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -308,7 +315,7 @@
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/server/virtualmin-nginx-create-new-vhost-fail.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-7.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-2.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -341,7 +348,7 @@ Can't use stri...
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/frontend/textarea-diff-webkit-edgehtml.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-9.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-12.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -373,7 +380,7 @@ Can't use stri...
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/php/updating-old-dependencies-lock.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-7.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-6.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">
@@ -404,7 +411,7 @@ Can't use stri...
                                     <li>
             <div class="mdui-card xblog-list-card-container">
                 <a href="/read/php/profiling-with-pprof.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-3.png);">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-9.png);">
                         <div style="height: 300px;"></div>
                         <div class="mdui-card-media-covered">
                             <div class="mdui-card-primary">

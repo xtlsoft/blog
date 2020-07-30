@@ -13,9 +13,16 @@
         function jump(url) {
             window.location.href = url;
         }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            mdui.JQ("body").addClass("mdui-theme-layout-dark");
+
+        function autodetect() {
+            if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                mdui.JQ("body").removeClass("mdui-theme-layout-dark");
+            }
         }
+
+        mdui.JQ(document).ready(function() {
+            autodetect();
+        });
     </script>
     <style>
         body,
@@ -29,7 +36,7 @@
     </style>
 </head>
 
-<body class="mdui-appbar-with-toolbar mdui-theme-layout-auto mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+<body class="mdui-appbar-with-toolbar mdui-theme-layout-dark mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
     <header>
         <div class="mdui-appbar mdui-appbar-fixed">
             <div class="mdui-toolbar mdui-color-theme-900">
