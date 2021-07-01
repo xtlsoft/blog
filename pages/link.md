@@ -20,7 +20,7 @@ comment: link
 |           高浩裕            |      <http://ghyer.com/>      |
 |            Ivan             |     <https://yfgeek.com/>     |
 |           做梦王            |     <https://www.zomw.cn>     |
-|          深海小涛           |    <https://www.xtlink.cn>    |
+|          深海小涛           |    <https://xtaolink.cn>    |
 |           Hans362           |  <https://blog.hans362.cn/>   |
 | Gogo - 流转着绮丽光芒的秘境 |    <https://blog.gogo.moe>    |
 |           Mathor            |    <https://wmathor.com/>     |
