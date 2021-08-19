@@ -30,6 +30,7 @@ comment: link
 | 泽 | <https://blog.stzo.cn/> |
 | 星辰日记 | <https://blog.xsot.cn/> |
 | ndoskrnl(钱桑) | <https://blog.ndoskrnl.net> |
+| Clansty(凌莞) | <https://c5y.moe> |
 
 ## 添加友情链接
 
