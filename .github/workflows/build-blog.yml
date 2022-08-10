@@ -1,0 +1,25 @@
+name: Build Blog
+on: [push]
+jobs:
+  Build-Repository:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Cache Composer dependencies
+        uses: actions/cache@v2
+        with:
+          path: /tmp/composer-cache
+          key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "7.2"
+          # ssh_key: ${{ secrets.SSH_KEY }}
+          # ssh_key_pub: ${{ secrets.SSH_KEY_PUB }}
+      - run: php build.php
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
