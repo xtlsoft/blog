@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>前端 - 徐天乐 :: 个人博客</title>
+    <title>新的起点 - 徐天乐 :: 个人博客</title>
     <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
     <link rel="stylesheet" href="/highlight.js/style.min.css" />
     <script src="/mdui/js/mdui.min.js"></script>
@@ -42,7 +42,7 @@
             <div class="mdui-toolbar mdui-color-theme-900">
                 <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
                 <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 个人博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">前端</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">新的起点</a>
                 <div class="mdui-toolbar-spacer"></div>
                 <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
                 <a href="https://www.xtlsoft.top/zh-cn" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
@@ -77,94 +77,39 @@
                 </li>
                     </ul>
     </div>
-    <div id="main" style="margin: 0px 15px; min-height: 90%;"><style>
-    .list-unstyled {
-        padding-left: 0px;
-        list-style: none;
-    }
-
-    .list-unstyled li {
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .xblog-list-card-container {
-        margin: 15px auto;
-        max-width: 1050px;
-        min-height: 400px;
-    }
-
-    .xblog-list-card-container .mdui-card-media {
-        background-position: center center;
-        background-repeat: no-repeat;
-        /* background-attachment: fixed; */
-        background-size: cover;
-        background-color: #464646;
-    }
-
-    .xblog-footer-nav-text {
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: 20px;
-        font-weight: 500;
-        -webkit-font-smoothing: antialiased;
-        height: 100%;
-        line-height: 24px;
-        padding-top: 24px;
-        width: 100%;
-    }
-
-    .xblog-footer-nav-text .xblog-footer-nav-direction {
-        font-size: 15px;
-        line-height: 18px;
-        margin-bottom: 1px;
-        opacity: 0.55;
-    }
-</style>
-
-<ul class="list-unstyled">
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/frontend/textarea-diff-webkit-edgehtml.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-9.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">Edge 和 Chrome 在 textarea 的 DOM API 上的一个小区别</div>
-                                <div class="mdui-card-primary-subtitle">分类：前端</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    标题真长
-组件的样子
-&amp;lt;textarea id=&amp;quot;test_text...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/frontend/textarea-diff-webkit-edgehtml.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2019-07-31 14:16:03</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="mdui-color-theme" style="height: 96px;">
-    <div class="mdui-container">
-        <div class="mdui-row">
-                            <div class="mdui-col-xs-6 mdui-col-sm-6"></div>
-                                        <div class="mdui-col-xs-6 mdui-col-sm-6"></div>
-                    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        新的起点        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2022-09-02 10:33:20 &nbsp; &nbsp;
+            分类: 日常使用        </small>
+    </h1>
+    <div>
+        <p>如题。</p>
     </div>
+</div>
+<link rel="stylesheet" href="/comment/comment.css" />
+<script src="/comment/md5.js" type="text/javascript"></script>
+<script src="/comment/comment.js" type="text/javascript"></script>
+<div class="mdui-typo">
+    <br />
+    <h1>评论</h1>
+</div>
+<div id="comment_base"></div>
+<script>
+    window.commentPresenter.init("#comment_base");
+</script><script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2022            </p>
         </div>
+    </div>    </div>
         </body>
     <script type="text/javascript" src="/highlight.js/highlight.min.js"></script>
     <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
