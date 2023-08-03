@@ -24,7 +24,7 @@ comment: link
 |           Hans362           |  <https://blog.hans362.cn/>   |
 | Gogo - 流转着绮丽光芒的秘境 |    <https://blog.gogo.moe>    |
 |           Mathor            |    <https://wmathor.com/>     |
-|           小易 Uce          |   <https://www.xiaoyiblog.cc>  |
+|           小易 Uce          |   <https://lemonyi.com>  |
 | 土间被活埋の小破站 | <https://www.umr2333.com> |
 | Kiritake Kumi | <https://blog.yazawaniko.com/> |
 | 泽 | <https://blog.stzo.cn/> |
