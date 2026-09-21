@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旧稿 - 徐天乐 :: 个人博客</title>
+    <link rel="stylesheet" href="/old/mdui/css/mdui.min.css" />
+    <link rel="stylesheet" href="/old/highlight.js/style.min.css" />
+    <script src="/old/mdui/js/mdui.min.js"></script>
+    <script>
+        function jump(url) {
+            window.location.href = url;
+        }
+
+        function autodetect() {
+            if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                mdui.JQ("body").removeClass("mdui-theme-layout-dark");
+            }
+        }
+
+        mdui.JQ(document).ready(function() {
+            autodetect();
+        });
+    </script>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .mdui-theme-layout-dark .mdui-typo code {
+            color: #eeeeee !important;
+        }
+    </style>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-layout-dark mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+    <header>
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme-900">
+                <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
+                <a href="/old/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 个人博客</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">旧稿</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="/old/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
+                <a href="https://www.xtlsoft.top/zh-cn" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
+            </div>
+        </div>
+    </header>
+    <div class="mdui-drawer" id="drawer-main">
+        <ul class="mdui-list mdui-ripple">
+                                        <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                    <div onclick="jump('/old/');" class="mdui-list-item-content">首页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">list</i>
+                    <div onclick="jump('/old/categories.html');" class="mdui-list-item-content">分类</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">archive</i>
+                    <div onclick="jump('/old/archive.html');" class="mdui-list-item-content">归档</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+                    <div onclick="jump('/old/link.html');" class="mdui-list-item-content">友情链接</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
+                    <div onclick="jump('https://www.xtlsoft.top/zh-cn');" class="mdui-list-item-content">个人主页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">mail</i>
+                    <div onclick="jump('mailto:xtl@xtlsoft.top');" class="mdui-list-item-content">Mail</div>
+                </li>
+                    </ul>
+    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><style>
+    .list-unstyled {
+        padding-left: 0px;
+        list-style: none;
+    }
+
+    .list-unstyled li {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .xblog-list-card-container {
+        margin: 15px auto;
+        max-width: 1050px;
+        min-height: 400px;
+    }
+
+    .xblog-list-card-container .mdui-card-media {
+        background-position: center center;
+        background-repeat: no-repeat;
+        /* background-attachment: fixed; */
+        background-size: cover;
+        background-color: #464646;
+    }
+
+    .xblog-footer-nav-text {
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 20px;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+        height: 100%;
+        line-height: 24px;
+        padding-top: 24px;
+        width: 100%;
+    }
+
+    .xblog-footer-nav-text .xblog-footer-nav-direction {
+        font-size: 15px;
+        line-height: 18px;
+        margin-bottom: 1px;
+        opacity: 0.55;
+    }
+</style>
+
+<ul class="list-unstyled">
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/2018-final.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-1.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">2018 年终总结</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    
+似乎离上一次年报还没多久，就又到年终了，这个破博客从 2017 到现在已经两个年头啦，在此感谢所有...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/2018-final.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-12-31 21:57:25</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/vboxmanage-startvm-in-pure-cli.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-8.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">VirtualBox 使用 VBoxManage 在纯命令行启动虚拟机</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    由来
+一台只有 ssh 的服务器，需要在上面开虚拟机，并且不想每次都把 vnc 映射出来用 vnc ...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/vboxmanage-startvm-in-pure-cli.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-10-05 13:27:59</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/sudo-hole-in-userns.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-1.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">sudo 在 userns 的坑</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    由来
+包：github.com/xtlsoft/container
+由于 Golang 将 Sets...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/sudo-hole-in-userns.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-08-10 18:39:49</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/swoole-in-transfer-encoding-chunked.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-2.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">Swoole 在 Transfer-Encoding: chunked 的某些锅</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    由来
+黎明的一张图片：
+
+
+在只输出 “test” 的情况下，用 easy-swoole 有 40m...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/swoole-in-transfer-encoding-chunked.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-07-31 08:32:28</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/lenovo-e42-80-fn-linux-fix.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-2.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">【解决方案】E42-80 装 Linux Fn 键修复</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    由来
+在 Lenovo E42-80 上安装了 deepin ，准备做开发主力系统。
+但是一直没有投...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/lenovo-e42-80-fn-linux-fix.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-07-30 18:50:10</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/windows-10-bash-mount-drivers-not-mounted-automatically.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-2.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">Windows 10 第二子系统挂载未自动挂载的盘符</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    由来
+在开发中，Bash on Ubuntu on Windows 10 是必不可少的神器，不然我用...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/windows-10-bash-mount-drivers-not-mounted-automatically.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-07-18 12:49:57</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/graphql-custom-default-resolver.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-11.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">GraphQL-php 中自定义 defaultResolver 的坑</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    由来
+在开发 Waddle 框架时，被 @idawnlight 催促修复 bug。。。
+问题
+居然不...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/graphql-custom-default-resolver.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-07-13 21:53:57</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/grade-eight-ends-end-term-exam.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-1.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">初二结束 - 期末考试成绩分析</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    分数总览
+总分
+分数
+
+以上是智学网成绩截图。
+排名
+六门总分校排第 3 ，第二名比我高 0.5 分...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/grade-eight-ends-end-term-exam.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-06-30 13:57:28</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/golang-optional-parameters.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-10.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">Golang 【伪】可选参数（Optional Parameters）</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    由来
+
+TL;DR 可以直接看最下面“我的解决方案“。
+
+前几天，在 @gosrc （果子）的 Go...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/golang-optional-parameters.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-06-30 13:28:16</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+                                    <li>
+            <div class="mdui-card xblog-list-card-container">
+                <a href="/old/read/old_posts/golang-nil-pointer-error.html">
+                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-2.png);">
+                        <div style="height: 300px;"></div>
+                        <div class="mdui-card-media-covered">
+                            <div class="mdui-card-primary">
+                                <div class="mdui-card-primary-title">Golang "invalid memory address or nil pointer dereference" 正解</div>
+                                <div class="mdui-card-primary-subtitle">分类：旧稿</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div class="mdui-card-content">
+                    出现
+在写 Go-Router 的时候，SimpleHttpServer 中要一个 Request ...
+                    &nbsp; &nbsp; &nbsp;
+                    <a href="/old/read/old_posts/golang-nil-pointer-error.html">继续阅读</a>
+                    <hr class="mdui-divider" style="margin: 10px 0;" />
+                    <div>
+                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
+                                                <div>
+                            <ul class="list-unstyled" style="margin-left: 60px;">
+                                <li><b>作者：</b>xtlsoft</li>
+                                <li><b>时间：</b>2018-06-14 21:29:31</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="mdui-color-theme" style="height: 96px;">
+    <div class="mdui-container">
+        <div class="mdui-row">
+                            <div class="mdui-col-xs-6 mdui-col-sm-6"></div>
+                                        <a class="mdui-ripple mdui-color-theme mdui-col-xs-6 mdui-col-sm-6" style="height: 96px; text-align:right;"  href="./2.html" >
+                    <div class="xblog-footer-nav-text">
+                        <i class="mdui-icon material-icons">arrow_forward</i>
+                        <span class="xblog-footer-nav-direction">Next</span>
+                        <div style="margin-right: 0px;">下一页</div>
+                    </div>
+                </a>
+                    </div>
+    </div>
+        </div>
+        </body>
+    <script type="text/javascript" src="/old/highlight.js/highlight.min.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</html>

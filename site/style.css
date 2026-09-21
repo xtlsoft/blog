@@ -1,0 +1,114 @@
+/* blog.xtlsoft.top — under construction */
+
+:root {
+  --paper: #f5f4f0;
+  --ink: #14130f;
+  --ink-dim: #6d675a;
+  --rule: #e0dcd0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121110;
+    --ink: #e9e6dd;
+    --ink-dim: #8d877a;
+    --rule: #2a2822;
+  }
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.page {
+  max-width: 41rem;
+  margin: 0 auto;
+  padding: 20vh 1.75rem 4rem;
+}
+
+/* masthead */
+
+.masthead { margin-bottom: 4.5rem; }
+
+.sigil {
+  display: block;
+  fill: var(--ink);
+  shape-rendering: crispEdges;
+  margin-bottom: 2rem;
+}
+
+.kicker {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--ink-dim);
+  margin-bottom: 0.6rem;
+}
+
+.name {
+  font-size: 1.9rem;
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  line-height: 1.2;
+}
+
+/* panel */
+
+.panel { min-height: 17rem; }
+
+.panel p { max-width: 38rem; }
+
+.panel p + p { margin-top: 1.2rem; }
+
+.lede {
+  font-size: 1.28rem;
+  line-height: 1.55;
+  border-left: 1px solid var(--ink);
+  padding-left: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.panel strong { font-weight: 600; }
+
+/* links */
+
+.links {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.links a {
+  color: var(--ink);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--ink-dim);
+  transition: text-decoration-color 0.2s ease;
+  align-self: flex-start;
+}
+
+.links a:hover { text-decoration-color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* small screens */
+
+@media (max-width: 36rem) {
+  .page { padding-top: 13vh; }
+  .name { font-size: 1.6rem; }
+}

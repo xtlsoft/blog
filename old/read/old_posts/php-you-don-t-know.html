@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>你所不知的 PHP - 请别无脑黑了 - 徐天乐 :: 个人博客</title>
+    <link rel="stylesheet" href="/old/mdui/css/mdui.min.css" />
+    <link rel="stylesheet" href="/old/highlight.js/style.min.css" />
+    <script src="/old/mdui/js/mdui.min.js"></script>
+    <script>
+        function jump(url) {
+            window.location.href = url;
+        }
+
+        function autodetect() {
+            if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                mdui.JQ("body").removeClass("mdui-theme-layout-dark");
+            }
+        }
+
+        mdui.JQ(document).ready(function() {
+            autodetect();
+        });
+    </script>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .mdui-theme-layout-dark .mdui-typo code {
+            color: #eeeeee !important;
+        }
+    </style>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-layout-dark mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+    <header>
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme-900">
+                <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
+                <a href="/old/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 个人博客</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">你所不知的 PHP - 请别无脑黑了</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="/old/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
+                <a href="https://www.xtlsoft.top/zh-cn" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
+            </div>
+        </div>
+    </header>
+    <div class="mdui-drawer" id="drawer-main">
+        <ul class="mdui-list mdui-ripple">
+                                        <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                    <div onclick="jump('/old/');" class="mdui-list-item-content">首页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">list</i>
+                    <div onclick="jump('/old/categories.html');" class="mdui-list-item-content">分类</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">archive</i>
+                    <div onclick="jump('/old/archive.html');" class="mdui-list-item-content">归档</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+                    <div onclick="jump('/old/link.html');" class="mdui-list-item-content">友情链接</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
+                    <div onclick="jump('https://www.xtlsoft.top/zh-cn');" class="mdui-list-item-content">个人主页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">mail</i>
+                    <div onclick="jump('mailto:xtl@xtlsoft.top');" class="mdui-list-item-content">Mail</div>
+                </li>
+                    </ul>
+    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        你所不知的 PHP - 请别无脑黑了        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2017-07-27 08:55:27 &nbsp; &nbsp;
+            分类: 旧稿        </small>
+    </h1>
+    <div>
+        <h2>前言</h2>
+<p>在中国，很多企业十分保守，Python 和 NodeJS 都不敢用，而又因为没有对于 PHP 的深入了解，选择了 Java。
+因为大家对于 PHP 了解误区较深，特此写这篇文章。</p>
+<h3>PHP 成熟性</h3>
+<p>PHP 的出生确实比较低贱，只是一个统计访问量的小程序。经历无数版本的迭代，目前 PHP7.2-Alpha 和 JIT 分支都已经出世，PHP7.1 已经是 stable 了，目前没有发现任何漏洞。
+并且，PHP 的安全性接口也很多，可以自己重写安全模块。</p>
+<h3>PHP 没有 Module?</h3>
+<p>然而，你忘记了 PH 可以使用 C/C++编写拓展，而且类似 python 的“import from“，PHP 的“use as“也非常好用。
+原生的 pear 和 pecl 你用不惯的话，composer 是一个好选择。非常类似 npm，但是略有差别。</p>
+<h3>PHP 不支持异步？</h3>
+<p>这应该是大多数反对 PHP 的人的观点。
+实话说，PHP 原生实现异步，稍有困难，不过通过 pcntl 自己写一个进程管理，也不是不可能。
+现在，有了一个流行的拓展，叫做 Swoole，内部不仅实现 PHP 进程管理，还实现了封装好的 MySQL,PgSQL,Redis 等异步客户端，异步 IO，类似 NodeJS 的非阻塞 Web 服务器等。
+如果你只需要异步 Socket/WebSocket/Http 服务器，或需要异步 Mysql/PgSQL/Redis 客户端，却不想安装拓展，那你可以试试 ReactPHP 和 Workerman。</p>
+<h3>PHP 混乱的函数名</h3>
+<p>我承认，这是一个缺点。但相对 Java 一大堆类名，也差不到哪里去。并且 PHP 官方的文档还是很好用的，很通俗，相对 Java，要实现什么功能，只要用 <a href="http://php.net/">http://php.net/</a> 的搜索框就可以了。
+而且，有什么不想自己写的模块，可以到以下地方搜索：</p>
+<blockquote>
+<p><a href="http://pecl.php.net/">http://pecl.php.net/</a> &gt; <a href="http://pear.php.net/">http://pear.php.net/</a> &gt; <a href="http://packagist.org/">http://packagist.org/</a></p>
+</blockquote>
+<h3>PHP 只能用于 Web</h3>
+<p>这是一个最大的误区，这么说的人请看看 PHP-CLI，PHP-GTK 和 PHP 的 UI 扩展。</p>
+<h3>PHP 语法太宽松</h3>
+<p>。。。
+这一点，我只能：呵呵。
+你嫌它宽松，你可以写得严谨一点啊！</p>
+<h3>PHP 不能重载类，不能修改异常处理，不能……</h3>
+<p>你其实完全可以自己写一个扩展实现的哦！
+问这个问题，就像问，为什么 Python 不能用指针？</p>
+<blockquote>
+<p>整理时补充：别打我！</p>
+</blockquote>
+    </div>
+</div>
+<link rel="stylesheet" href="/old/comment/comment.css" />
+<script src="/old/comment/md5.js" type="text/javascript"></script>
+<script src="/old/comment/comment.js" type="text/javascript"></script>
+<div class="mdui-typo">
+    <br />
+    <h1>评论</h1>
+</div>
+<div id="comment_base"></div>
+<script>
+    window.commentPresenter.init("#comment_base");
+</script><script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2023            </p>
+        </div>
+    </div>    </div>
+        </body>
+    <script type="text/javascript" src="/old/highlight.js/highlight.min.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</html>

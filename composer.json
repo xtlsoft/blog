@@ -1,8 +1,0 @@
-{
-    "require": {
-        "league/commonmark": "*",
-        "league/commonmark-extras": "*",
-        "symfony/yaml": "*",
-        "league/commonmark-ext-table": "*"
-    }
-}
