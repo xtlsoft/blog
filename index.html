@@ -1,460 +1,55 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>首页 - 徐天乐 :: 个人博客</title>
-    <link rel="stylesheet" href="/mdui/css/mdui.min.css" />
-    <link rel="stylesheet" href="/highlight.js/style.min.css" />
-    <script src="/mdui/js/mdui.min.js"></script>
-    <script>
-        function jump(url) {
-            window.location.href = url;
-        }
-
-        function autodetect() {
-            if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                mdui.JQ("body").removeClass("mdui-theme-layout-dark");
-            }
-        }
-
-        mdui.JQ(document).ready(function() {
-            autodetect();
-        });
-    </script>
-    <style>
-        body,
-        html {
-            height: 100%;
-        }
-
-        .mdui-theme-layout-dark .mdui-typo code {
-            color: #eeeeee !important;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Construction — Tianle Xu</title>
+  <meta name="description" content="The age of artificial intelligence is not approaching. It has arrived. This site is being rebuilt around that question.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Under Construction — Tianle Xu">
+  <meta property="og:description" content="The age of artificial intelligence is not approaching. It has arrived.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://blog.xtlsoft.top/">
+  <meta name="theme-color" content="#f5f4f0" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121110" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://blog.xtlsoft.top/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
+  <main class="page">
 
-<body class="mdui-appbar-with-toolbar mdui-theme-layout-dark mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
-    <header>
-        <div class="mdui-appbar mdui-appbar-fixed">
-            <div class="mdui-toolbar mdui-color-theme-900">
-                <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
-                <a href="/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 个人博客</a>
-                <a href="javascript:;" class="mdui-typo-title mdui-ripple">首页</a>
-                <div class="mdui-toolbar-spacer"></div>
-                <a href="/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
-                <a href="https://www.xtlsoft.top/zh-cn" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
-            </div>
-        </div>
+    <header class="masthead">
+      <svg class="sigil" viewBox="0 0 7 7" width="56" height="56" role="img" aria-label="x">
+        <rect x="0" y="0" width="1" height="1"/><rect x="6" y="0" width="1" height="1"/>
+        <rect x="1" y="1" width="1" height="1"/><rect x="5" y="1" width="1" height="1"/>
+        <rect x="2" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/>
+        <rect x="3" y="3" width="1" height="1"/>
+        <rect x="2" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/>
+        <rect x="1" y="5" width="1" height="1"/><rect x="5" y="5" width="1" height="1"/>
+        <rect x="0" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/>
+      </svg>
+      <p class="kicker">xtlsoft.top / blog</p>
+      <h1 class="name">Under Construction</h1>
     </header>
-    <div class="mdui-drawer" id="drawer-main">
-        <ul class="mdui-list mdui-ripple">
-                                        <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
-                    <div onclick="jump('/');" class="mdui-list-item-content">首页</div>
-                </li>
-                            <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">list</i>
-                    <div onclick="jump('/categories.html');" class="mdui-list-item-content">分类</div>
-                </li>
-                            <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">archive</i>
-                    <div onclick="jump('/archive.html');" class="mdui-list-item-content">归档</div>
-                </li>
-                            <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
-                    <div onclick="jump('/link.html');" class="mdui-list-item-content">友情链接</div>
-                </li>
-                            <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
-                    <div onclick="jump('https://www.xtlsoft.top/zh-cn');" class="mdui-list-item-content">个人主页</div>
-                </li>
-                            <li class="mdui-list-item mdui-ripple">
-                    <i class="mdui-list-item-icon mdui-icon material-icons">mail</i>
-                    <div onclick="jump('mailto:xtl@xtlsoft.top');" class="mdui-list-item-content">Mail</div>
-                </li>
-                    </ul>
-    </div>
-    <div id="main" style="margin: 0px 15px; min-height: 90%;"><style>
-    .list-unstyled {
-        padding-left: 0px;
-        list-style: none;
-    }
 
-    .list-unstyled li {
-        display: block;
-        margin-bottom: 5px;
-    }
+    <section class="panel">
+      <p class="lede">The age of artificial intelligence is not approaching. It has arrived.</p>
 
-    .xblog-list-card-container {
-        margin: 15px auto;
-        max-width: 1050px;
-        min-height: 400px;
-    }
+      <p>It is rewriting, in real time, the assumptions we inherited about work, learning, and thought — faster than we can renegotiate them.</p>
 
-    .xblog-list-card-container .mdui-card-media {
-        background-position: center center;
-        background-repeat: no-repeat;
-        /* background-attachment: fixed; */
-        background-size: cover;
-        background-color: #464646;
-    }
+      <p>Such an era does not reward faster reactions. It demands deeper ones: a reconsideration of <strong>what we build</strong>, <strong>what we keep</strong>, and <strong>what we are for</strong>.</p>
 
-    .xblog-footer-nav-text {
-        box-sizing: border-box;
-        display: inline-block;
-        font-size: 20px;
-        font-weight: 500;
-        -webkit-font-smoothing: antialiased;
-        height: 100%;
-        line-height: 24px;
-        padding-top: 24px;
-        width: 100%;
-    }
+      <p>This site is being rebuilt around that question.</p>
 
-    .xblog-footer-nav-text .xblog-footer-nav-direction {
-        font-size: 15px;
-        line-height: 18px;
-        margin-bottom: 1px;
-        opacity: 0.55;
-    }
-</style>
+      <nav class="links">
+        <a href="/old/">-&gt; The archive, as it was</a>
+        <a href="https://www.xtlsoft.top/">-&gt; xtlsoft.top</a>
+        <a href="mailto:xtl@xtlsoft.top">-&gt; xtl@xtlsoft.top</a>
+      </nav>
+    </section>
 
-<ul class="list-unstyled">
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/daily/admission_to_university.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-7.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">新的起点</div>
-                                <div class="mdui-card-primary-subtitle">分类：日常使用</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    如题。
-...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/daily/admission_to_university.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2022-09-02 10:33:20</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/server/building-wsl-kernel-with-aufs.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-6.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">编译带有 AUFS 支持的 WSL 内核</div>
-                                <div class="mdui-card-primary-subtitle">分类：服务运维</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    由来
-切换到 WSL 2 的目的是做容器开发。然而，WSL 2 Kernel 并没有编译进（实际上接...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/server/building-wsl-kernel-with-aufs.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2020-07-24 09:13:22</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/php/trying-php-8.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-1.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">PHP 8 初尝试：性能，新特性和方向</div>
-                                <div class="mdui-card-primary-subtitle">分类：PHP Programming</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    PHP 8 Alpha 1 发布已经有几天了，然而我一直咕咕咕到现在才来尝“鲜“。
-@idawnli...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/php/trying-php-8.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2020-07-05 16:33:02</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/daily/wsl_2_bugs_2004.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-11.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">WSL 2 在 Windows 10 Ver 2004 的一些 Bug</div>
-                                <div class="mdui-card-primary-subtitle">分类：日常使用</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    更新了 Microsoft Windows 10 Version 2004，期待已久的 WSL 2 ...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/daily/wsl_2_bugs_2004.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2020-05-31 12:37:02</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/general/aliyun-account-find-back.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-10.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">找回被禁用的阿里云账号</div>
-                                <div class="mdui-card-primary-subtitle">分类：普通主题</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    过程
-这个账号原来是注册阿里大于短信用的，后来大于和阿里云合体了于是也就无法登录了。
-上次我忽然发现...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/general/aliyun-account-find-back.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2020-04-04 15:14:12</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/announcement/tencent-id-being-banned-2020.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-5.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">【已过时】 QQ 号封号说明</div>
-                                <div class="mdui-card-primary-subtitle">分类：公告</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    概述
-由于被多人恶意举报，账号被临时封号。
-经过沟通，腾讯客服一直机器回答，暂未获得进展。
-应对
-暂...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/announcement/tencent-id-being-banned-2020.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2020-01-23 21:01:47</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/general/2019-final.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-9.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">2019 年终总结</div>
-                                <div class="mdui-card-primary-subtitle">分类：普通主题</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    重构
-博客在暑假经历了一次比较大的重构，总体上来说就是迁移到 GitHub Pages 上，（并没有...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/general/2019-final.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2020-01-05 10:52:04</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/server/virtualmin-nginx-create-new-vhost-fail.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-11.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">Virtualmin Nginx 新建网站报错 "strict refs" in use</div>
-                                <div class="mdui-card-primary-subtitle">分类：服务运维</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    问题症状
-Error - Perl execution failed
-
-Can&#039;t use...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/server/virtualmin-nginx-create-new-vhost-fail.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2019-08-01 14:37:34</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/frontend/textarea-diff-webkit-edgehtml.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-1.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">Edge 和 Chrome 在 textarea 的 DOM API 上的一个小区别</div>
-                                <div class="mdui-card-primary-subtitle">分类：前端</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    标题真长
-组件的样子
-&amp;lt;textarea id=&amp;quot;test_text...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/frontend/textarea-diff-webkit-edgehtml.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2019-07-31 14:16:03</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-                                    <li>
-            <div class="mdui-card xblog-list-card-container">
-                <a href="/read/php/profiling-with-pprof.html">
-                    <div class="mdui-card-media mdui-ripple" style="background-image: url(https://cdn.jsdelivr.net/gh/idawnlight/typecho-theme-material@3.3.1/img/random/material-9.png);">
-                        <div style="height: 300px;"></div>
-                        <div class="mdui-card-media-covered">
-                            <div class="mdui-card-primary">
-                                <div class="mdui-card-primary-title">使用 pprof 调优 PHP 应用程序</div>
-                                <div class="mdui-card-primary-subtitle">分类：PHP Programming</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <div class="mdui-card-content">
-                    本文中，我将分享使用 apd 及 pprof 分析 PHP 应用程式性能，及使用 gperftool...
-                    &nbsp; &nbsp; &nbsp;
-                    <a href="/read/php/profiling-with-pprof.html">继续阅读</a>
-                    <hr class="mdui-divider" style="margin: 10px 0;" />
-                    <div>
-                                                    <img src="https://avatars.githubusercontent.com/u/16159830?v=4" style="width: 50px; height: 50px; float: left; margin-top: 2px;" alt="avatar" class="mdui-img-circle" />
-                                                <div>
-                            <ul class="list-unstyled" style="margin-left: 60px;">
-                                <li><b>作者：</b>xtlsoft</li>
-                                <li><b>时间：</b>2019-07-31 14:05:26</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="mdui-color-theme" style="height: 96px;">
-    <div class="mdui-container">
-        <div class="mdui-row">
-                            <div class="mdui-col-xs-6 mdui-col-sm-6"></div>
-                                        <a class="mdui-ripple mdui-color-theme mdui-col-xs-6 mdui-col-sm-6" style="height: 96px; text-align:right;"  href="/list/2.html" >
-                    <div class="xblog-footer-nav-text">
-                        <i class="mdui-icon material-icons">arrow_forward</i>
-                        <span class="xblog-footer-nav-direction">Next</span>
-                        <div style="margin-right: 0px;">下一页</div>
-                    </div>
-                </a>
-                    </div>
-    </div>
-        </div>
-        </body>
-    <script type="text/javascript" src="/highlight.js/highlight.min.js"></script>
-    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+  </main>
+</body>
 </html>

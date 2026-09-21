@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VirtualBox 使用 VBoxManage 在纯命令行启动虚拟机 - 徐天乐 :: 个人博客</title>
+    <link rel="stylesheet" href="/old/mdui/css/mdui.min.css" />
+    <link rel="stylesheet" href="/old/highlight.js/style.min.css" />
+    <script src="/old/mdui/js/mdui.min.js"></script>
+    <script>
+        function jump(url) {
+            window.location.href = url;
+        }
+
+        function autodetect() {
+            if (!window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                mdui.JQ("body").removeClass("mdui-theme-layout-dark");
+            }
+        }
+
+        mdui.JQ(document).ready(function() {
+            autodetect();
+        });
+    </script>
+    <style>
+        body,
+        html {
+            height: 100%;
+        }
+
+        .mdui-theme-layout-dark .mdui-typo code {
+            color: #eeeeee !important;
+        }
+    </style>
+</head>
+
+<body class="mdui-appbar-with-toolbar mdui-theme-layout-dark mdui-theme-primary-blue mdui-drawer-body-left" style="height: 100%;">
+    <header>
+        <div class="mdui-appbar mdui-appbar-fixed">
+            <div class="mdui-toolbar mdui-color-theme-900">
+                <a href="javascript:;" mdui-drawer="{target: '#drawer-main'}" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">menu</i></a>
+                <a href="/old/" class="mdui-typo-headline mdui-ripple">徐天乐 :: 个人博客</a>
+                <a href="javascript:;" class="mdui-typo-title mdui-ripple">VirtualBox 使用 VBoxManage 在纯命令行启动虚拟机</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="/old/" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">home</i></a>
+                <a href="https://www.xtlsoft.top/zh-cn" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon material-icons">account_circle</i></a>
+            </div>
+        </div>
+    </header>
+    <div class="mdui-drawer" id="drawer-main">
+        <ul class="mdui-list mdui-ripple">
+                                        <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">home</i>
+                    <div onclick="jump('/old/');" class="mdui-list-item-content">首页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">list</i>
+                    <div onclick="jump('/old/categories.html');" class="mdui-list-item-content">分类</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">archive</i>
+                    <div onclick="jump('/old/archive.html');" class="mdui-list-item-content">归档</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+                    <div onclick="jump('/old/link.html');" class="mdui-list-item-content">友情链接</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">account_circle</i>
+                    <div onclick="jump('https://www.xtlsoft.top/zh-cn');" class="mdui-list-item-content">个人主页</div>
+                </li>
+                            <li class="mdui-list-item mdui-ripple">
+                    <i class="mdui-list-item-icon mdui-icon material-icons">mail</i>
+                    <div onclick="jump('mailto:xtl@xtlsoft.top');" class="mdui-list-item-content">Mail</div>
+                </li>
+                    </ul>
+    </div>
+    <div id="main" style="margin: 0px 15px; min-height: 90%;"><div class="mdui-typo">
+    <h1>
+        VirtualBox 使用 VBoxManage 在纯命令行启动虚拟机        <br />
+        <small>
+            作者: xtlsoft &nbsp; &nbsp;
+            时间: 2018-10-05 13:27:59 &nbsp; &nbsp;
+            分类: 旧稿        </small>
+    </h1>
+    <div>
+        <h2>由来</h2>
+<p>一台只有 ssh 的服务器，需要在上面开虚拟机，并且不想每次都把 vnc 映射出来用 vnc 操作 VirtualBox 图形界面。</p>
+<h2>查找资料</h2>
+<p><code>VBoxManage</code> 不就是我要的东西吗！果断：</p>
+<pre><code class="language-bash">sudo apt install VBoxManage
+</code></pre>
+<h2>查看 help</h2>
+<p>运行 <code>VBoxManage</code> ，列出了一堆命令。里面有一个正是我们需要的：
+<code>VBoxManage startvm {uuid/name}</code>
+于是，我尝试：<code>VBoxManage startvm &quot;Windows Server 2016&quot;</code>
+结果出错。</p>
+<h2>搜索 issue</h2>
+<p>查找官方 issue，竟然是因为没启动图形界面造成的？？？</p>
+<pre><code class="language-bash">vnc4server -geometry 1366x768
+export SCREEN=:1
+</code></pre>
+<p>没用系列。</p>
+<h2>正解</h2>
+<p>我们需要使用 <code>无头模式</code>，就可以直接从命令行启动虚拟机：</p>
+<pre><code class="language-bash">VBoxManage startvm &quot;Windows Server 2016&quot; --type headless
+</code></pre>
+    </div>
+</div>
+<link rel="stylesheet" href="/old/comment/comment.css" />
+<script src="/old/comment/md5.js" type="text/javascript"></script>
+<script src="/old/comment/comment.js" type="text/javascript"></script>
+<div class="mdui-typo">
+    <br />
+    <h1>评论</h1>
+</div>
+<div id="comment_base"></div>
+<script>
+    window.commentPresenter.init("#comment_base");
+</script><script>
+    mdui.JQ("table").addClass("mdui-table mdui-table-hoverable");
+</script>
+</div>
+<div class="mdui-color-theme" style="height: 75px; margin: 0;">
+    <div class="mdui-container">
+        <div class="mdui-typo" style="height: 75px; margin: 0;">
+            <p align="center" style="height: 75px; line-height: 75px; margin: 0;">
+                &copy; xtlsoft 2016-2023            </p>
+        </div>
+    </div>    </div>
+        </body>
+    <script type="text/javascript" src="/old/highlight.js/highlight.min.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+</html>
